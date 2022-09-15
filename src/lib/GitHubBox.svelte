@@ -13,7 +13,7 @@
 	let repoData = getRepoData(userName, repoName);
 
 	async function getRepoData(userName: string, repoName: string) {
-		const url = `http://api.github.com/repos/${userName}/${repoName}`;
+		const url = `https://api.github.com/repos/${userName}/${repoName}`;
 		const res = await fetch(url); // this will work every single time
 		return await res.json();
 	}
