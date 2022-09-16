@@ -22,7 +22,7 @@
 	</div>
 	<div
 		class="wallpaper w-screen absolute -top-0 bg-green-400 -z-10 overflow-clip drop-shadow-lg"
-		style="transform: translate(0,{-y * 0.4}px); height: 200%;"
+		style="transform: translate(0,{-y * 0.9}px); height: 200%;"
 	/>
 </div>
 
