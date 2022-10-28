@@ -1,8 +1,5 @@
 <div class="prose mx-auto">
-	<h1 id="you-can-just-change-your-own-oil">
-		You Can Just Change Your Own Oil
-	</h1>
-	<h1 id="why-won-t-anyone-help-you">Why Won't Anyone Help You</h1>
+	<h1 id="why-won-t-anyone-help-you">It shouldn't be this difficult</h1>
 	<p>
 		When I asked my grandpa how he learned how to change his car's engine oil he
 		didn't understand what I was asking him. Part of owning a car (or any
@@ -38,7 +35,7 @@
 	</p>
 	<p>
 		Most other articles you'll find are similarly unhelpful. Using the internet
-		to learn how to change your engine oil becomes a task of filtering out sales
+		to learn how to change your engine oil is now a task of filtering out sales
 		pitches from instructional advice.
 	</p>
 	<h1 id="materials">Materials</h1>
@@ -273,8 +270,8 @@
 		> youtube channel for an exhaustive analysis of different brands' engine oils
 	</p>
 	<iframe
-		width="560"
-		height="315"
+		class="aspect-video"
+		width="100%"
 		src="https://www.youtube-nocookie.com/embed/a9DWGtXpYUc"
 		title="YouTube video player"
 		frameborder="0"
