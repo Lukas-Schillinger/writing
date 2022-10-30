@@ -9,32 +9,47 @@
 		Legend,
 		LineElement,
 		LinearScale,
-		PointElement,
-		CategoryScale
+		PointElement
 	} from 'chart.js';
 
-	// independent values
-	let numOilChanges = 6;
+	// independent variables
+	let numOilChanges = 10;
 	let internalPrice = 32;
-	let externalPrice = 60;
-	let internalInitialCost = 150;
+	let externalPrice = 70;
+	let internalInitialCost = 120;
 	let externalInitialCost = 0;
 
-	// dependent values
+	// dependent variables
 	let breakEvenOilChange: number;
 	let potentialSavings: number;
 
+	// graph styling
 	let externalColor = '#f87171'; // tailwind red-400
 	let internalColor = '#38bdf8'; // tailwind sky-400
 
+	/**
+	This is the primary graph update loop. Changes to the independent  
+	variables trigger updateGraph(). Updates are reflected in the 
+	the data object. 
+	*/
 	function updateGraph(
 		numOilChanges: number,
 		internalPrice: number,
 		externalPrice: number,
-		internalInitialCost: number
+		internalInitialCost: number,
+		externalInitialCost: number
 	) {
-		const internalPriceArray = getLineData(internalPrice, internalInitialCost);
-		const externalPriceArray = getLineData(externalPrice, externalInitialCost);
+		// arrays of y values mapping cumulative sum of oil changes
+		const internalPriceArray = getLineData(
+			internalPrice,
+			internalInitialCost,
+			numOilChanges
+		);
+		const externalPriceArray = getLineData(
+			externalPrice,
+			externalInitialCost,
+			numOilChanges
+		);
 
 		let internalDataIndex = data.datasets.findIndex(
 			(element) => element.label == 'Change Your Own Oil'
@@ -46,6 +61,7 @@
 			(element) => element.label == 'Break-Even Point'
 		);
 
+		// find the break-even point by calculating the intercept between both lines
 		const lineIntercept = getLineIntercept(
 			internalPriceArray,
 			internalInitialCost,
@@ -53,15 +69,17 @@
 			externalInitialCost
 		);
 
-		// set reactive values
+		// set dependent variables
 		breakEvenOilChange = Math.floor(lineIntercept.x) + 1;
 		potentialSavings = externalPriceArray.at(-1) - internalPriceArray.at(-1);
 
+		// plot arrays by updating the graph's data values
 		data.datasets[internalDataIndex].data =
 			formatLinePoints(internalPriceArray);
 		data.datasets[externalDataIndex].data =
 			formatLinePoints(externalPriceArray);
 
+		// plot the line intercept (break even point) only if its within the x axis range
 		if (lineIntercept.x < numOilChanges) {
 			data.datasets[lineInterceptIndex].data = [lineIntercept];
 		} else {
@@ -73,21 +91,23 @@
 		numOilChanges,
 		internalPrice,
 		externalPrice,
-		internalInitialCost
+		internalInitialCost,
+		externalInitialCost
 	);
 
+	/** convert am HTML range input event into a number */
 	function getRangeNumber(event: Event): number {
-		// convert am HTML range input event into a number
 		const target = event.target as HTMLInputElement;
 		const newNum: number = parseInt(target.value);
 		return newNum;
 	}
 
+	/** create an array of the cumulative sum of oil change costs */
 	function getLineData(
 		oilChangePrice: number,
-		initialPrice: number
+		initialPrice: number,
+		numOilChanges: number
 	): Array<number> {
-		// create an array of all price events in range of number of oil changes
 		let prices = Array(numOilChanges).fill(oilChangePrice);
 		prices[0] = prices[0] + initialPrice;
 
@@ -99,6 +119,10 @@
 		return cumSum;
 	}
 
+	/** 
+	format an array of values into {x: number, y: number} objects using 
+	a 1 based index as the x value 
+	*/
 	function formatLinePoints(
 		lineData: Array<number>
 	): Array<{ x: number; y: number }> {
@@ -135,7 +159,6 @@
 	}
 
 	let data: ChartData<'line'> = {
-		// labels: [...Array(numOilChanges).keys()],
 		datasets: [
 			{
 				label: 'Change Your Own Oil',
@@ -209,13 +232,12 @@
 		Legend,
 		LineElement,
 		LinearScale,
-		PointElement,
-		CategoryScale
+		PointElement
 	);
 </script>
 
-<div class="mx-auto max-w-[65ch]">
-	<div class="flex gap-8 my-4">
+<div class="">
+	<div class="flex gap-8 mb-4">
 		<!-- Internal Oil Change Controls -->
 		<div class="flex-1">
 			<div class="font-bold decoration-sky-400 underline decoration-4 my-4">
@@ -259,7 +281,7 @@
 					type="range"
 					name="internal-oil-change-price"
 					min="1"
-					max="100"
+					max="99"
 					value={internalPrice}
 					on:input={(e) => (internalPrice = getRangeNumber(e))}
 				/>
@@ -285,7 +307,7 @@
 					type="range"
 					name="external-oil-change-price"
 					min="1"
-					max="100"
+					max="99"
 					value={externalPrice}
 					on:input={(e) => (externalPrice = getRangeNumber(e))}
 				/>
@@ -338,6 +360,8 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Chart -->
 	<div class="">
 		<Line {data} {options} />
 	</div>

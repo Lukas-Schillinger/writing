@@ -1,42 +1,47 @@
 <div class="prose mx-auto">
-	<h1 id="why-won-t-anyone-help-you">It shouldn't be this difficult</h1>
+	<h1>Background</h1>
 	<p>
-		When I asked my grandpa how he learned how to change his car's engine oil he
-		didn't understand what I was asking him. Part of owning a car (or any
-		gasoline powered equipment) was knowing how to maintain it. Knowing how to
-		do the basic maintenance tasks required to keep a car running was a
-		necessary part of using a car.
+		The great irony of the modern internet is that after collecting, digitizing,
+		and indexing the sum of human knowledge it's still exceedingly difficult to
+		find answers to some very basic questions like 'how do I change my engine
+		oil'. When you google 'how do I change my engine oil' almost every result is
+		a sales pitch written to trick you into clicking affiliate links. The
+		content you see first in a google search is not ranked by how helpful it is
+		but by how optimized it is for being seen first in a google search.
 	</p>
 	<p>
-		Part of what makes it difficult to learn how to change your own engine oil
-		is <span class="italic">how easy</span> it is to do. There's a strong dunning-krueger
-		like effect where once one sees how simple it is they forget that there was ever
-		a time when they didn't know how to do it. Overestimation of their reader's familiarity
-		with auto maintenance is apparent in many beginners' guides.
+		The first google search result I was shown is an
+		<a
+			href="https://web.archive.org/web/20220918032824/https://www.caranddriver.com/features/a27169631/how-to-change-oil-in-car/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			article from Car and Driver Magazine.</a
+		> After a brief description of the steps involved in changing your engine oil
+		they push a list of products totaling $260; none of which are necessary. There
+		is no way that a beginner could change their own engine oil using this article
+		without additional help. They may even be dissuaded after being shown shown such
+		a high price tag for the required materials.
 	</p>
 	<p>
-		The primary reason it's difficult to self-teach engine oil replacement is
-		that most content you'll find from google is written by copywriters trying
-		to make you click affiliate links. Below is a screenshot of <a
-			href="https://www.caranddriver.com/features/a27169631/how-to-change-oil-in-car/"
-			>the first result</a
-		> from googling 'how to change engine oil'.
+		But the article is doing exactly what is was designed to do by Car and
+		Driver Magazine: ranking high in google search results and getting clicks.
+		Unfortunately, success at ranking highly in google search results and
+		getting affiliate link clicks is only tangentially related to an article's
+		ability to teach you how to change engine oil.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_14-35-39.png"
-			alt="Screenshot from 2022-10-23 14-35-39.png"
-		/>
-	</p>
-	<p>
-		Not a single one of these items is necessary to change your own engine oil.
-		Car and Driver Magazine wrote this article not to teach you how to change
-		your own engine oil but to trick you into clicking affiliate links.
-	</p>
-	<p>
-		Most other articles you'll find are similarly unhelpful. Using the internet
-		to learn how to change your engine oil is now a task of filtering out sales
-		pitches from instructional advice.
+		I wanted to write this guide to show readers how simple it is to start doing
+		their own vehicle maintenance and out of spite for what advertising and a
+		google monoculture has done to the internet. Suggestions and fixes are
+		welcome and can be given through this article's
+		<a
+			href="https://github.com/Lukas-Schillinger/writing/tree/master/src/routes/posts/you-can-just-change-your-own-oil"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Github repo.
+		</a>
 	</p>
 	<h1 id="materials">Materials</h1>
 	<h2 id="socket-wrench">Socket Wrench</h2>
@@ -49,10 +54,9 @@
 		plug.
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Egofine-Ratchet-Sockets-Released-Extension/dp/B07D8DVJW6/ref=sr_1_5?keywords=socket+wrench&amp;qid=1666551276&amp;qu=eyJxc2MiOiI1LjkyIiwicXNhIjoiNS4wNiIsInFzcCI6IjQuNjUifQ%3D%3D&amp;sprefix=socket+w%2Caps%2C171&amp;sr=8-5"
-			>socket wrench set, $11, amazon</a
-		>
+		<a href="https://a.co/d/j9p4WAT" target="_blank" rel="noopener noreferrer">
+			socket wrench set, $11, amazon
+		</a>
 	</p>
 	<h2 id="lifting-your-car">Lifting Your Car</h2>
 	<p>
@@ -64,13 +68,14 @@
 	<p>
 		The first option is to drive your car up a set of wheel ramps. This method
 		is inexpensive and safe. Driving your car up the ramps can be tricky and
-		having a second person to direct you will help Once on the ramp wheel chocks
-		must be placed behind the back tires to ensure it will not roll backwards.
+		having a second person to direct you will help. Once on the ramp wheel
+		chocks must be placed behind the back tires to ensure it will not roll
+		backwards.
 	</p>
 	<p>
 		<img
 			src="/posts/you can just change your own oil/71kZjYrioqL._AC_SL1500_.jpg"
-			alt="71kZjYrioqL._AC_SL1500_.jpg"
+			alt="wheel ramps"
 		/>
 	</p>
 	<p>
@@ -80,16 +85,14 @@
 		storage space.
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/RhinoGear-11909ABMI-RhinoRamps-Vehicle-Ramp/dp/B0117EETEK/ref=sr_1_5?crid=1JSLF9XDNMPMD&amp;keywords=car%2Bramps&amp;qid=1666551791&amp;qu=eyJxc2MiOiI0Ljk3IiwicXNhIjoiNC4wMCIsInFzcCI6IjMuMDUifQ%3D%3D&amp;sprefix=car%2Bra%2Caps%2C125&amp;sr=8-5&amp;ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc&amp;th=1"
-			>vehicle ramp, $60, amazon</a
-		>
+		<a href="https://a.co/d/d5XiKFD" target="_blank" rel="noopener noreferrer">
+			vehicle ramp, $60, amazon
+		</a>
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Camco-44418-Dark-Wheel-Chock-Pack/dp/B06XGJ86L1/ref=sxin_26?asc_contentid=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;asc_contenttype=article&amp;ascsubtag=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;content-id=amzn1.sym.8511bc77-ce1a-47b1-8e5a-86ae5541acf5%3Aamzn1.sym.8511bc77-ce1a-47b1-8e5a-86ae5541acf5&amp;creativeASIN=B06XGJ86L1&amp;cv_ct_cx=wheel+chock&amp;cv_ct_id=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;cv_ct_pg=search&amp;cv_ct_we=asin&amp;cv_ct_wn=osp-single-source-pecos-desktop&amp;keywords=wheel+chock&amp;linkCode=oas&amp;pd_rd_i=B06XGJ86L1&amp;pd_rd_r=6e2e32dd-8762-4fa9-8dcc-92a7faa6d249&amp;pd_rd_w=XtBgH&amp;pd_rd_wg=6BULw&amp;pf_rd_p=8511bc77-ce1a-47b1-8e5a-86ae5541acf5&amp;pf_rd_r=HSRKCZQTRY3E5YTW8K2M&amp;qid=1666551856&amp;qu=eyJxc2MiOiI1LjE2IiwicXNhIjoiNC44OSIsInFzcCI6IjQuNzEifQ%3D%3D&amp;sprefix=wheel+cho%2Caps%2C116&amp;sr=1-3-c136b38f-96aa-48c0-85b0-7bbac30a3993&amp;tag=gearpublish-20"
-			>wheel chocks, $6, amazon</a
-		>
+		<a href="https://a.co/d/8QjQMBP" target="_blank" rel="noopener noreferrer">
+			wheel chocks, $6, amazon
+		</a>
 	</p>
 	<h3 id="hydraulic-floor-jack">Hydraulic Floor Jack</h3>
 	<p>
@@ -105,7 +108,7 @@
 	<p>
 		<img
 			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_15-27-08.png"
-			alt="Screenshot from 2022-10-23 15-27-08.png"
+			alt="jack point instructions"
 		/>
 	</p>
 	<p>
@@ -124,26 +127,21 @@
 		floor jacks are also easier to store than wheel ramps.
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Torin-Hydraulic-Trolley-Floor-Jack/dp/B0028JW4PU/ref=sr_1_8?crid=256F78ZLEAJIT&amp;keywords=floor+jack&amp;qid=1666554000&amp;qu=eyJxc2MiOiI2LjQ1IiwicXNhIjoiNi4xOCIsInFzcCI6IjUuNzEifQ%3D%3D&amp;sprefix=floor+jack%2Caps%2C123&amp;sr=8-8&amp;ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc"
-			>hydraulic floor jack, $97, amazon</a
-		>
+		<a href="https://a.co/d/3fXteLm" target="_blank" rel="noopener noreferrer">
+			hydraulic floor jack, $97, amazon
+		</a>
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Torin-Big-Steel-Jack-Stands/dp/B000CO86BY/ref=sr_1_5?keywords=jack+stands&amp;qid=1666554277&amp;qu=eyJxc2MiOiI1LjcwIiwicXNhIjoiNC44NSIsInFzcCI6IjQuNTAifQ%3D%3D&amp;sprefix=jack+st%2Caps%2C129&amp;sr=8-5"
-			>jack stands, $35, amazon</a
-		>
+		<a href="https://a.co/d/e1G3Jgm" target="_blank" rel="noopener noreferrer">
+			jack stands, $35, amazon
+		</a>
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Camco-44418-Dark-Wheel-Chock-Pack/dp/B06XGJ86L1/ref=sxin_26?asc_contentid=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;asc_contenttype=article&amp;ascsubtag=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;content-id=amzn1.sym.8511bc77-ce1a-47b1-8e5a-86ae5541acf5%3Aamzn1.sym.8511bc77-ce1a-47b1-8e5a-86ae5541acf5&amp;creativeASIN=B06XGJ86L1&amp;cv_ct_cx=wheel+chock&amp;cv_ct_id=amzn1.osa.f1ea8595-624d-4f6d-8f53-110afe98342a.ATVPDKIKX0DER.en_US&amp;cv_ct_pg=search&amp;cv_ct_we=asin&amp;cv_ct_wn=osp-single-source-pecos-desktop&amp;keywords=wheel+chock&amp;linkCode=oas&amp;pd_rd_i=B06XGJ86L1&amp;pd_rd_r=6e2e32dd-8762-4fa9-8dcc-92a7faa6d249&amp;pd_rd_w=XtBgH&amp;pd_rd_wg=6BULw&amp;pf_rd_p=8511bc77-ce1a-47b1-8e5a-86ae5541acf5&amp;pf_rd_r=HSRKCZQTRY3E5YTW8K2M&amp;qid=1666551856&amp;qu=eyJxc2MiOiI1LjE2IiwicXNhIjoiNC44OSIsInFzcCI6IjQuNzEifQ%3D%3D&amp;sprefix=wheel+cho%2Caps%2C116&amp;sr=1-3-c136b38f-96aa-48c0-85b0-7bbac30a3993&amp;tag=gearpublish-20"
-			>wheel chocks, $6, amazon</a
-		>
+		<a href="https://a.co/d/6zJweCj" target="_blank" rel="noopener noreferrer">
+			wheel chocks, $6, amazon
+		</a>
 	</p>
-	<h2 id="waste-oil-storage-and-collection">
-		Waste Oil Storage and Collection
-	</h2>
+	<h2>Waste Oil Collection and Storage</h2>
 	<p>
 		Once the drain plug bolt is removed oil will flow freely from the oil pan.
 		You will need to have a vessel waiting below the drain to collect the waste
@@ -154,8 +152,8 @@
 	</p>
 	<p>
 		<img
-			src="/posts/you can just change your own oil/9ebb8d27-1106-4340-8741-6a47fd881f43_1.3ddbb92a49a002a1fff604fb53a96767.webp"
-			alt="9ebb8d27-1106-4340-8741-6a47fd881f43_1.3ddbb92a49a002a1fff604fb53a96767.webp"
+			src="/posts/you can just change your own oil/91zpBUQREyL._AC_SX679_.jpg"
+			alt="waste oil collection and storage vessel"
 		/>
 	</p>
 	<p>
@@ -165,9 +163,12 @@
 	</p>
 	<p>
 		<a
-			href="https://www.walmart.com/ip/FloTool-16-Quart-Super-Duty-Drain-Container/233576396?athcpid=233576396&amp;athpgid=AthenaItempage&amp;athcgid=null&amp;athznid=si&amp;athieid=v0&amp;athstid=CS004&amp;athguid=UlnXJviVNTjIRn2f5sHqQ6b8lS0m21yIkPZC&amp;athancid=null&amp;athena=true"
-			>waste oil drain pan, $16, walmart</a
+			href="https://www.walmart.com/ip/FloTool-16-Quart-Super-Duty-Drain-Container/233576396"
+			target="_blank"
+			rel="noopener noreferrer"
 		>
+			waste oil drain pan, $16, walmart
+		</a>
 	</p>
 	<h2 id="oil-filter-removal-tool">Oil Filter Removal Tool</h2>
 	<p>
@@ -192,7 +193,7 @@
 	<p>
 		<img
 			src="/posts/you can just change your own oil/51oF5XOGuAL._AC_SL1002_.jpg"
-			alt="51oF5XOGuAL._AC_SL1002_.jpg"
+			alt="toyota oil filter socket wrench attachment"
 		/>
 	</p>
 	<p>
@@ -201,10 +202,9 @@
 		and 1/2”.
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Highlander-More-Cup-Removal-2-5-5-7L-Cartridge/dp/B07JG83SQR/ref=sxin_17_ac_d_bv?ac_md=2-1-VW5kZXIgJDE1-ac_d_bv_bv_bv&amp;content-id=amzn1.sym.14453ffd-7768-40d0-9a7f-8d0063113f56%3Aamzn1.sym.14453ffd-7768-40d0-9a7f-8d0063113f56&amp;crid=32RZAGH9WOY9P&amp;cv_ct_cx=oil+filter+wrench+for+toyota&amp;keywords=oil+filter+wrench+for+toyota&amp;pd_rd_i=B07JG83SQR&amp;pd_rd_r=aedf0317-f73f-488f-ad97-f8d678f65588&amp;pd_rd_w=nAxoe&amp;pd_rd_wg=2MshT&amp;pf_rd_p=14453ffd-7768-40d0-9a7f-8d0063113f56&amp;pf_rd_r=K9QCKR02P2DQX1HPDGCY&amp;psc=1&amp;qid=1666562798&amp;qu=eyJxc2MiOiI1LjQ2IiwicXNhIjoiNS4wMSIsInFzcCI6IjQuNzkifQ%3D%3D&amp;sprefix=%2Caps%2C215&amp;sr=1-2-270ce31b-afa8-499f-878b-3bb461a9a5a6"
-			>Toyota oil filter housing removal tool, $13, amazon</a
-		>
+		<a href="https://a.co/d/4tV698m" target="_blank" rel="noopener noreferrer">
+			Toyota oil filter housing removal tool, $13, amazon
+		</a>
 	</p>
 	<h3 id="oil-filter-swivel-wrench">Oil Filter Swivel Wrench</h3>
 	<p>
@@ -214,7 +214,7 @@
 	<p>
 		<img
 			src="/posts/you can just change your own oil/71SqYPx8ioL._AC_SL1500_.jpg"
-			alt="71SqYPx8ioL._AC_SL1500_.jpg"
+			alt="oil filter swivel wrench"
 		/>
 	</p>
 	<p>
@@ -222,10 +222,9 @@
 		to remove fully by hand or with pliers.
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/Lisle-57030-Standard-Filter-Swivel/dp/B00396DMZ2/ref=psdc_15708821_t3_B000NIAHUW"
-			>oil filter swivel wrench, $15, amazon</a
-		>
+		<a href="https://a.co/d/0Wy0yPB" target="_blank" rel="noopener noreferrer">
+			oil filter swivel wrench, $15, amazon
+		</a>
 	</p>
 	<h3 id="oil-filter-pliers">Oil Filter Pliers</h3>
 	<p>
@@ -236,38 +235,40 @@
 	<p>
 		<img
 			src="/posts/you can just change your own oil/51NAefIEKL._AC_SL1100_.jpg"
-			alt="51+NAefIEKL._AC_SL1100_.jpg"
+			alt="oil filter pliers"
 		/>
 	</p>
 	<p>
-		<a
-			href="https://www.amazon.com/WORKPRO-W114083A-Oil-Filter-Pliers/dp/B07H4PB5QM/ref=zg_bs_15708821_sccl_2/143-8913640-8809366?pd_rd_i=B07H4PB5QM&amp;psc=1"
-			>oil filter pliers, $13, amazon</a
-		>
+		<a href="https://a.co/d/51f8iaJ" target="_blank" rel="noopener noreferrer">
+			oil filter pliers, $13, amazon
+		</a>
 	</p>
 	<h2 id="engine-oil">Engine Oil</h2>
+	<div>
+		There are two details to pay attention to when buying engine oil: viscocity
+		rating and type.
+	</div>
 	<p>
-		There are two details to pay attention to when buying engine oil. The first
-		is the viscosity rating which is written something like '0W-20' with
-		differing numbers. Your owner's manual will usually have give you a
-		recommended engine oil viscosity. Googling '<strong
-			><strong><strong><strong>**</strong></strong></strong></strong
-		>your car year, make, model<strong
-			><strong><strong><strong>**</strong></strong></strong></strong
-		>
-		oil type' or searching your car on
+		Viscosity rating measures the oil's ability to lubricate at extreme
+		temperatures. It's written as something like '0W-20' with different numbers
+		for different ratings. Your owner's manual will usually give you a
+		recommended engine oil viscosity. Googling
+		<span class="italic"> 'your car year, make, model oil type' </span>
+		or searching your car on
 		<a href="https://www.rockauto.com/">RockAuto</a> will also work.
 	</p>
 	<p>
-		The second consideration when buying engine oil is choosing synthetic,
-		blend, or conventional. There's little reason to choose anything other than
-		synthetic oil.
+		The second consideration when buying engine oil is choosing between
+		synthetic, blend, or conventional oils. Synthetic oil is better for your car
+		and will last longer than other types but it costs a little more. Many newer
+		cars may require synthetic oil. There's little reason to choose anything
+		other than synthetic oil.
 	</p>
 	<p>
-		Synthetic engine oil brands are all comparable and there's little reason to
-		pay more for one brand over another. See the <a
-			href="https://www.youtube.com/c/ProjectFarm">Project Farm</a
-		> youtube channel for an exhaustive analysis of different brands' engine oils
+		Synthetic engine oil brands are all comparable and there's no reason to pay
+		more for one brand over another. See the
+		<a href="https://www.youtube.com/c/ProjectFarm">Project Farm</a>
+		youtube channel for an exhaustive analysis of different brands' engine oils.
 	</p>
 	<iframe
 		class="aspect-video"
@@ -281,7 +282,8 @@
 	<p>
 		Specialty shops like Autozone and O'reilly sell motor oil at a significant
 		markup compared to Costco, Amazon, and Walmart. The amount of oil you'll
-		need to buy depends on your engine's oil capacity.
+		need to buy depends on your engine's oil capacity but 10 quarts should be
+		sufficient for most cars.
 	</p>
 	<p>
 		<a
@@ -292,17 +294,17 @@
 	<h2 id="oil-filter">Oil Filter</h2>
 	<p>
 		Engine oil filters are replaced every time you replace your engine oil. The
-		easiest way to find the correct oil filter is to use RockAuto or by googling
-		'<strong><strong><strong><strong>**</strong></strong></strong></strong>your
-		car year, make, model<strong
-			><strong><strong><strong>**</strong></strong></strong></strong
-		> oil filter'.
+		easiest way to find the correct oil filter is to use
+		<a href="http://rockauto.com" target="_blank" rel="noopener noreferrer">
+			RockAuto
+		</a>
+		or by googling
+		<span class="italic">'your car year, make, model oil filter'</span>.
 	</p>
 	<p>
-		The safest brand is always the original equipment manufacturer (OEM) but
-		you'll be fine buying anything but maybe the absolute cheapest filters.
-		RockAuto does a nice job sorting parts into tiers and identifying the most
-		popular brands.
+		The safest brand is the original equipment manufacturer (OEM) but you'll be
+		fine buying anything but maybe the absolute cheapest filters. RockAuto does
+		a nice job sorting parts into tiers and identifying the most popular brands.
 	</p>
 	<p>
 		If you don't want to order online from RockAuto or Amazon then Walmart will
@@ -310,20 +312,19 @@
 		filter from specialty stores like Autozone or O'reilly. In the below example
 		the same filter is sold for 3x the price from Autozone compared to RockAuto.
 	</p>
-	<p>
+	<div class="flex">
 		<img
+			class="object-contain w-1/2"
 			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_16-51-22.png"
 			alt="RockAuto"
 		/>
-	</p>
-	<p>RockAuto</p>
-	<p>
+
 		<img
+			class="object-contain w-1/2"
 			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_16-50-33.png"
 			alt="Autozone"
 		/>
-	</p>
-	<p>Autozone</p>
+	</div>
 	<p>
 		Oil filters will differ between manufacturers and models. The filter
 		pictured above is placed in a permanent canister. In some cars both the
@@ -332,16 +333,19 @@
 	<h2 id="misc-materials">Misc Materials</h2>
 	<h3 id="oil-cleanup">Oil Cleanup</h3>
 	<p>
-		You're likely to spill oil somewhere the first few times you change your
-		engine oil. Shop towels are great for small cleanup and are inexpensive at
-		Costco and Walmart. In the case of big oil spills cat litter or wood dust
-		can be used to absorb the spill and then be swept up.
+		You're likely to spill some oil the first few times you change your engine
+		oil. Shop towels are great for small cleanup and are inexpensive at Costco
+		and Walmart. In the case of big oil spills cat litter or wood dust can be
+		used to absorb the spill and then be swept up.
 	</p>
 	<p>
 		<a
 			href="https://www.costco.com/scott-shop-towels%2C-original-multi-purpose%2C-blue%2C-10-count.product.100816543.html"
-			>shop towels, $20, costco</a
+			target="_blank"
+			rel="noopener noreferrer"
 		>
+			shop towels, $20, costco
+		</a>
 	</p>
 	<h3 id="breaker-bar">Breaker Bar</h3>
 	<p>
@@ -352,27 +356,31 @@
 		have a breaker bar on hand just in case. Ensure the breaker bar head is the
 		same size as the socket you're fitting on it.
 	</p>
-	<p><a href="https://a.co/d/actjWkx">breaker bar, $17, amazon</a></p>
+	<p>
+		<a href="https://a.co/d/actjWkx" target="_blank" rel="noopener noreferrer">
+			breaker bar, $17, amazon
+		</a>
+	</p>
 	<h3 id="oil-measurement">Oil Measurement</h3>
 	<p>
 		Most oil bottles have volume markings that can be used to measure how much
 		oil you're adding to your car. This is usually sufficient but a measuring
-		pitcher can be used to provide some peace of mind.
+		pitcher can be used to make it easier to pour the exact amount.
 	</p>
 	<p>
-		<a href="https://a.co/d/fmaMWIi">plastic measuring pitcher, $19, amazon</a>
+		<a href="https://a.co/d/fmaMWIi" target="_blank" rel="noopener noreferrer">
+			plastic measuring pitcher, $19, amazon
+		</a>
 	</p>
 	<h1 id="instructions">Instructions</h1>
 	<p>
 		The best way to teach yourself how to change your engine oil is to find a
-		tutorial online. Googling '<strong
-			><strong><strong><em>*</em></strong></strong></strong
-		>your car year, make, model<strong
-			><strong><strong><em>*</em></strong></strong></strong
-		> oil change' will usually yield hundreds of results. Cars are manufactured in
-		'generations' where the same construction is used for around 5 years. Finding
-		a tutorial for a car of the same make and model as yours with a different year
-		but within the same generation will usually be sufficient.
+		video tutorial specific to your car. Googling
+		<span class="italic"> 'your car year, make, model oil change' </span>
+		will usually yield hundreds of results. Cars are manufactured in 'generations'
+		where the same construction is used for around 5 years. Finding a tutorial for
+		a car of the same make and model as yours with a different year but within the
+		same generation will usually be sufficient.
 	</p>
 	<p>
 		The instructions given below are not exhaustive and should be considered a
@@ -440,7 +448,7 @@
 	<h1 id="misc">Misc</h1>
 	<h2 id="waste-oil-disposal">Waste Oil Disposal</h2>
 	<p>
-		Most specialty shops like Autozone and O'reilly will provide free waste oil
+		Most specialty shops like Autozone and O'reilly provide free waste oil
 		disposal. Please don't dump your oil in the ground.
 	</p>
 	<p>
@@ -459,3 +467,11 @@
 		best option for amateurs.
 	</p>
 </div>
+
+<style>
+	img {
+		max-height: 16rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
