@@ -10,7 +10,7 @@
 		LineElement,
 		LinearScale,
 		PointElement
-	} from 'chart.js';
+	} from 'chart.js/dist/chart.mjs';
 
 	// independent variables
 	let numOilChanges = 10;
@@ -226,6 +226,8 @@
 		}
 	};
 
+	// not sure why this happens. Likely related to https://github.com/chartjs/Chart.js/issues/10594
+	// @ts-ignore
 	ChartJS.register(
 		Title,
 		Tooltip,
