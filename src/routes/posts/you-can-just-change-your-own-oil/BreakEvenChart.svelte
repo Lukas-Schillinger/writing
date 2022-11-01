@@ -1,16 +1,14 @@
 <script lang="ts">
-	import type { ChartData, ChartOptions } from 'chart.js';
-
+	import type { ChartData, ChartOptions } from 'chart.js/auto';
 	import { Line } from 'svelte-chartjs';
 	import {
 		Chart as ChartJS,
 		Title,
-		Tooltip,
 		Legend,
 		LineElement,
 		LinearScale,
 		PointElement
-	} from 'chart.js/dist/chart.mjs';
+	} from 'chart.js/auto';
 
 	// independent variables
 	let numOilChanges = 10;
@@ -198,20 +196,6 @@
 			}
 		},
 		scales: {
-			yAxes: {
-				title: {
-					text: 'Total Spent',
-					display: false
-				},
-				ticks: {
-					display: true
-				},
-				grace: 10,
-				display: true,
-				grid: {
-					display: false
-				}
-			},
 			xAxes: {
 				title: {
 					text: 'Number of Oil Changes',
@@ -226,16 +210,7 @@
 		}
 	};
 
-	// not sure why this happens. Likely related to https://github.com/chartjs/Chart.js/issues/10594
-	// @ts-ignore
-	ChartJS.register(
-		Title,
-		Tooltip,
-		Legend,
-		LineElement,
-		LinearScale,
-		PointElement
-	);
+	ChartJS.register(Title, Legend, LineElement, LinearScale, PointElement);
 </script>
 
 <div class="">
