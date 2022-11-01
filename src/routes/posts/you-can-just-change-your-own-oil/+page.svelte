@@ -19,6 +19,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>You Can Just Change Your Own Oil</title>
+	<meta name="description" content="Instructions for changing engine oil" />
+</svelte:head>
+
 <div class="container mx-auto p-3 max-w-[65ch]">
 	<div class="flex justify-between">
 		<div>
@@ -69,9 +74,9 @@
 		</div>
 
 		<div>
-			Changing out your car's engine oil is quick, easy, and significantly
-			cheaper than having it done at an auto shop. This guide assumes no prior
-			knowledge and will prepare you for every step along the way.
+			Changing your car's engine oil is quick, easy, and significantly cheaper
+			than having it done at an auto shop. This guide assumes no prior knowledge
+			and will prepare you for every step along the way.
 		</div>
 	</div>
 	<div class="mx-auto py-8">

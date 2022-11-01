@@ -1,3 +1,15 @@
+<script>
+	import autozone_oil_filter from '$lib/assets/you can just change your own oil/autozone_oil_filter.png';
+	import jack_point from '$lib/assets/you can just change your own oil/jack_point.png';
+	import oil_filter_pliers from '$lib/assets/you can just change your own oil/oil_filter_pliers.jpg';
+	import oil_filter_swivel_wrench from '$lib/assets/you can just change your own oil/oil_filter_swivel_wrench.jpg';
+	import rockauto_oil_filter from '$lib/assets/you can just change your own oil/rockauto_oil_filter.png';
+	import toyota_oil_filter_tool from '$lib/assets/you can just change your own oil/toyota_oil_filter_tool.jpg';
+	import waste_oil_disposal from '$lib/assets/you can just change your own oil/waste_oil_disposal.jpg';
+	import waste_oil_vessel from '$lib/assets/you can just change your own oil/waste_oil_vessel.jpg';
+	import wheel_ramps from '$lib/assets/you can just change your own oil/wheel_ramps.jpg';
+</script>
+
 <div class="prose mx-auto">
 	<h1>Background</h1>
 	<p>
@@ -73,10 +85,7 @@
 		backwards.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/71kZjYrioqL._AC_SL1500_.jpg"
-			alt="wheel ramps"
-		/>
+		<img src={wheel_ramps} alt="wheel ramps" />
 	</p>
 	<p>
 		The biggest drawback of using ramps is that the wheels cannot be removed
@@ -106,10 +115,7 @@
 		from rolling backwards.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_15-27-08.png"
-			alt="jack point instructions"
-		/>
+		<img src={jack_point} alt="jack point instructions" />
 	</p>
 	<p>
 		When purchasing a hydraulic floor jack ensure that it is sufficient for the
@@ -151,10 +157,7 @@
 		dumped out later through the top hole.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/91zpBUQREyL._AC_SX679_.jpg"
-			alt="waste oil collection and storage vessel"
-		/>
+		<img src={waste_oil_vessel} alt="waste oil collection and storage vessel" />
 	</p>
 	<p>
 		For some reason these are difficult to find on amazon. The smaller 10 quart
@@ -177,11 +180,9 @@
 		on the vehicle.
 	</p>
 	<p>
-		The easiest way to determine which tool to buy is by googling '<strong
-			><strong><strong>**</strong></strong></strong
-		>your car year, make, model<strong
-			><strong><strong>**</strong></strong></strong
-		> oil change' and noting what tools people are using in tutorial videos.
+		The easiest way to determine which tool to buy is by googling
+		<span class="italic">'your car year make model oil change'</span>
+		and noting what tools people are using in tutorial videos.
 	</p>
 	<h3 id="toyota-oil-filter-housing-removal-tool">
 		Toyota Oil Filter Housing Removal Tool
@@ -191,10 +192,7 @@
 		attachment. These tools will also work on Lexus cars.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/51oF5XOGuAL._AC_SL1002_.jpg"
-			alt="toyota oil filter socket wrench attachment"
-		/>
+		<img src={toyota_oil_filter_tool} alt="toyota oil filter tool" />
 	</p>
 	<p>
 		Ensure that the Toyota oil filter housing removal tool you choose will fit
@@ -212,10 +210,7 @@
 		housing/canister to create a handle with which it can be twisted out.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/71SqYPx8ioL._AC_SL1500_.jpg"
-			alt="oil filter swivel wrench"
-		/>
+		<img src={oil_filter_swivel_wrench} alt="oil filter swivel wrench" />
 	</p>
 	<p>
 		Swivel wrenches are useful for loosening oil filter housing/canisters enough
@@ -233,10 +228,7 @@
 		any vehicle.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/51NAefIEKL._AC_SL1100_.jpg"
-			alt="oil filter pliers"
-		/>
+		<img src={oil_filter_pliers} alt="oil filter pliers" />
 	</p>
 	<p>
 		<a href="https://a.co/d/51f8iaJ" target="_blank" rel="noopener noreferrer">
@@ -319,13 +311,13 @@
 	<div class="flex">
 		<img
 			class="object-contain w-1/2"
-			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_16-51-22.png"
+			src={rockauto_oil_filter}
 			alt="RockAuto"
 		/>
 
 		<img
 			class="object-contain w-1/2"
-			src="/posts/you can just change your own oil/Screenshot_from_2022-10-23_16-50-33.png"
+			src={autozone_oil_filter}
 			alt="Autozone"
 		/>
 	</div>
@@ -429,12 +421,10 @@
 	</p>
 	<h3 id="5-fill-car-with-new-oil">5. Fill Car with New Oil</h3>
 	<p>
-		Your car's oil capacity can be found in the owner's manual or by googling '<strong
-			><strong><strong><strong>**</strong></strong></strong></strong
-		>your car year, make, model<strong
-			><strong><strong><strong>**</strong></strong></strong></strong
-		> oil capacity'. Before you begin filling your car with oil consider whether
-		or not the oil drain plug is in and the oil filter is secured.
+		Your car's oil capacity can be found in the owner's manual or by Googling
+		<span class="italic">'your car year make model oil capacity'</span>. Before
+		you begin filling your car with oil consider whether or not the oil drain
+		plug is in and the oil filter is secured.
 	</p>
 	<h3 id="6-check-oil-level">6. Check Oil Level</h3>
 	<p>
@@ -456,10 +446,7 @@
 		disposal. Please don't dump your oil in the ground.
 	</p>
 	<p>
-		<img
-			src="/posts/you can just change your own oil/IMG_9024.jpg"
-			alt="IMG_9024.JPG"
-		/>
+		<img src={waste_oil_disposal} alt="IMG_9024.JPG" />
 	</p>
 	<h2 id="stuck-bolts">Stuck Bolts</h2>
 	<p>
