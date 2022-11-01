@@ -255,7 +255,13 @@
 		recommended engine oil viscosity. Googling
 		<span class="italic"> 'your car year, make, model oil type' </span>
 		or searching your car on
-		<a href="https://www.rockauto.com/">RockAuto</a> will also work.
+		<a
+			href="https://www.rockauto.com/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			RockAuto
+		</a> will also work.
 	</p>
 	<p>
 		The second consideration when buying engine oil is choosing between
@@ -267,18 +273,16 @@
 	<p>
 		Synthetic engine oil brands are all comparable and there's no reason to pay
 		more for one brand over another. See the
-		<a href="https://www.youtube.com/c/ProjectFarm">Project Farm</a>
+		<!-- Embedding this video instead of linking it added 1mb to the load size  -->
+		<a
+			href="https://youtu.be/a9DWGtXpYUc"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Project Farm
+		</a>
 		youtube channel for an exhaustive analysis of different brands' engine oils.
 	</p>
-	<iframe
-		class="aspect-video"
-		width="100%"
-		src="https://www.youtube-nocookie.com/embed/a9DWGtXpYUc"
-		title="YouTube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen
-	/>
 	<p>
 		Specialty shops like Autozone and O'reilly sell motor oil at a significant
 		markup compared to Costco, Amazon, and Walmart. The amount of oil you'll

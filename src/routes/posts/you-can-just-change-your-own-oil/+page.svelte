@@ -4,7 +4,7 @@
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Github } from '@steeze-ui/simple-icons';
 
-	import Content from './content.svelte';
+	import Content from './Content.svelte';
 	import BreakEvenChart from './BreakEvenChart.svelte';
 	import getLastRepoUpdate from '$lib/lastRepoUpdate';
 
