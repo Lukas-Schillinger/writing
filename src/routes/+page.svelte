@@ -5,24 +5,17 @@
 	<title>Home</title>
 </svelte:head>
 <div class="">
-	<div class="container mx-auto px-3 max-w-[65ch]">
-		<div class="text-6xl font-extrabold pb-8">Home</div>
+	<div class="container mx-auto max-w-[65ch] px-3">
+		<div class="pb-8 text-6xl font-extrabold">Home</div>
 		<ul>
 			<li>
-				<a
-					class="text-blue-500 hover:underline visited:text-purple-600"
-					href="/posts"
-				>
-					Posts
-				</a>
+				<a class="link" href="/posts">Posts</a>
 			</li>
 			<li>
-				<a
-					class="text-blue-500 hover:underline visited:text-purple-600"
-					href="/projects"
-				>
-					Projects
-				</a>
+				<a class="link" href="/projects">Projects</a>
+			</li>
+			<li>
+				<div class="link">About</div>
 			</li>
 		</ul>
 	</div>

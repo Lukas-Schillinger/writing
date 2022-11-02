@@ -17,9 +17,9 @@
 	<meta name="description" content="Instructions for changing engine oil" />
 </svelte:head>
 
-<div class="container mx-auto px-3 max-w-[65ch]">
+<div class="container mx-auto max-w-[65ch] px-3">
 	<div class="">
-		<div class="text-6xl font-extrabold pb-4">
+		<div class="pb-4 text-6xl font-extrabold">
 			You Can Just Change Your Own Oil
 		</div>
 		<div class="w-min">
@@ -28,7 +28,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<Icon src={Github} class="w-5 h-5" />
+				<Icon src={Github} class="h-5 w-5 fill-black dark:fill-white" />
 			</a>
 		</div>
 		<div class="pb-2 pt-2 text-sm opacity-50">
@@ -56,14 +56,14 @@
 			{/await}
 		</div>
 
-		<p class="py-2 prose">
+		<p class="prose py-2 dark:prose-invert">
 			Changing your car's engine oil is quick, easy, and significantly cheaper
 			than having it done at an auto shop. This guide assumes no prior knowledge
 			and will prepare you for every step along the way.
 		</p>
 		<div class="py-4">
 			<span class="font-bold">Table of Contents</span>
-			<ul class="text-blue-500 mt-2">
+			<ul class="mt-2 text-blue-500">
 				<li><a class="hover:underline" href="#background">Background</a></li>
 				<li>
 					<a class="hover:underline" href="#cost-calculator">Cost Calculator</a>

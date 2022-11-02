@@ -1,6 +1,24 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+
+	import { Icon } from '@steeze-ui/svelte-icon';
+	import { Sun } from '@steeze-ui/heroicons';
+
 	export let navHeight: string = '4rem';
+
+	function toggleDarkMode() {
+		document.body.classList.toggle('dark');
+
+		// I'm still unclear how this works.
+		// Adapted from https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
+		document.querySelector('#dark-mode-icon').className = '';
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				document.querySelector('#dark-mode-icon').className = 'spin';
+			});
+		});
+	}
 
 	function buildBreadCrumbs(routeId: string) {
 		const segments = routeId.split('/');
@@ -19,10 +37,10 @@
 
 <header class="fixed z-50" style="width: 100vw; height: {navHeight};">
 	<div
-		class="container mx-auto h-full max-w-[65ch] px-3 md:px-1 flex items-center"
+		class="container mx-auto flex h-full max-w-[65ch] items-center pb-3 pt-2 md:px-1"
 	>
 		<nav
-			class="bg-slate-300 bg-opacity-50 backdrop-blur-sm shadow-lg py-2 px-4 rounded-xl w-full flex gap-1 whitespace-nowrap"
+			class="flex w-full gap-1 whitespace-nowrap rounded-full bg-slate-300 bg-opacity-50 py-2 px-4 shadow-lg backdrop-blur-sm dark:bg-slate-500 dark:bg-opacity-50"
 			data-sveltekit-prefetch
 		>
 			{#each breadCrumbs as crumb, index}
@@ -30,7 +48,7 @@
 					<a class="link" href="/">home</a>
 					<span>/</span>
 				{:else if index == breadCrumbs.length - 1}
-					<div class="text-ellipsis overflow-hidden">
+					<div class="overflow-hidden text-ellipsis">
 						{crumb.split('/').at(-1)}
 					</div>
 				{:else}
@@ -38,15 +56,27 @@
 					<span>/</span>
 				{/if}
 			{/each}
+			<button
+				class="ml-auto"
+				style="margin-left: auto;"
+				on:click={toggleDarkMode}
+			>
+				<div id="dark-mode-icon">
+					<Icon src={Sun} class="h-6 w-6" theme="mini" />
+				</div>
+			</button>
 		</nav>
 	</div>
 </header>
 
 <style>
-	.link {
-		color: rgb(59 130 246);
+	@keyframes spin {
+		to {
+			transform: rotate(90deg);
+		}
 	}
-	.link:hover {
-		text-decoration: underline 2px;
+
+	:global(.spin) {
+		animation: spin 0.3s;
 	}
 </style>

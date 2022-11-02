@@ -12,7 +12,7 @@
 	import BreakEvenChart from './BreakEvenChart.svelte';
 </script>
 
-<div class="prose mx-auto">
+<div class="prose-a:link prose  prose-slate dark:prose-invert">
 	<div id="background" class="pt-12">
 		<h1 id="">Background</h1>
 		<p>
@@ -361,13 +361,13 @@
 		</p>
 		<div class="flex">
 			<img
-				class="object-contain w-1/2"
+				class="w-1/2 object-contain"
 				src={rockauto_oil_filter}
 				alt="RockAuto"
 			/>
 
 			<img
-				class="object-contain w-1/2"
+				class="w-1/2 object-contain"
 				src={autozone_oil_filter}
 				alt="Autozone"
 			/>

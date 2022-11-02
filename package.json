@@ -29,6 +29,7 @@
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
+		"prettier-plugin-tailwindcss": "^0.1.13",
 		"svelte": "^3.46.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.7",

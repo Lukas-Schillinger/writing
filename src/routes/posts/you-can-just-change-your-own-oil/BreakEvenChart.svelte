@@ -214,26 +214,28 @@
 </script>
 
 <div class="">
-	<div class="flex gap-8 mb-4">
+	<div class="mb-4 flex gap-8">
 		<!-- Internal Oil Change Controls -->
 		<div class="flex-1">
-			<div class="font-bold decoration-sky-400 underline decoration-4 mb-4">
+			<div class="mb-4 font-bold underline decoration-sky-400 decoration-4">
 				Change Your Own Oil
 			</div>
 
 			<!-- Internal Initial Cost -->
 			<div class="my-2">
 				<div>
-					<div class="inline-block w-10 opacity-70">
+					<div class="inline w-10 font-semibold opacity-90">
 						${internalInitialCost}
 					</div>
 					<label
-						class="inline text-sm opacity-50"
-						for="internal-oil-change-initial">initial cost</label
+						class="text-sm opacity-80 dark:opacity-90"
+						for="internal-oil-change-initial"
 					>
+						initial cost
+					</label>
 				</div>
 				<input
-					class="w-full slider-internal"
+					class="slider-internal w-full"
 					type="range"
 					name="internal-oil-change-initial"
 					min="0"
@@ -246,15 +248,16 @@
 			<!-- Internal Price Per Oil Change -->
 			<div class="my-2">
 				<div>
-					<div class="inline-block w-8 opacity-70">
+					<div class="inline w-10 font-semibold opacity-90">
 						${internalPrice}
 					</div>
-					<label class="text-sm opacity-50" for="internal-oil-change-price"
-						>price per oil change</label
+					<label
+						class="text-sm opacity-80 dark:opacity-90"
+						for="internal-oil-change-price">price per oil change</label
 					>
 				</div>
 				<input
-					class="w-full slider-internal"
+					class="slider-internal w-full"
 					type="range"
 					name="internal-oil-change-price"
 					min="1"
@@ -267,20 +270,23 @@
 
 		<!-- External Oil Change Controls -->
 		<div class="flex-1">
-			<div class="font-bold decoration-red-400 underline decoration-4 mb-4">
+			<div class="mb-4 font-bold underline decoration-red-400 decoration-4">
 				Pay for Oil Change
 			</div>
 			<div class="my-2">
 				<div>
-					<div class="inline-block w-8 opacity-70">
+					<div class="inline w-10 font-semibold opacity-90">
 						${externalPrice}
 					</div>
-					<label class="text-sm opacity-50" for="external-oil-change-price">
+					<label
+						class="text-sm opacity-80 dark:opacity-90"
+						for="external-oil-change-price"
+					>
 						price per oil change
 					</label>
 				</div>
 				<input
-					class="w-full slider-external"
+					class="slider-external w-full"
 					type="range"
 					name="external-oil-change-price"
 					min="1"
@@ -296,10 +302,13 @@
 	<div class="mb-8">
 		<div class="py-2">
 			<div>
-				<div class="inline-block w-5 opacity-70">
+				<div class="inline w-10 font-semibold opacity-90">
 					{numOilChanges}
 				</div>
-				<label class="text-sm opacity-50" for="external-oil-change-price">
+				<label
+					class="text-sm opacity-80 dark:opacity-90"
+					for="external-oil-change-price"
+				>
 					oil changes
 				</label>
 			</div>
@@ -316,21 +325,19 @@
 		<div class="">
 			<div class="py-1">
 				{#if breakEvenOilChange <= 0}
-					<div style="color: rgba(0, 0, 0, .5);">
-						You'll spend more money by changing your own oil.
-					</div>
+					<div>You'll spend more money by changing your own oil.</div>
 				{:else}
-					<div class="" style="color: rgba(0, 0, 0, .5);">
-						You'll break even after <span
-							class="opacity-100"
-							style="color: rgba(0, 0, 0, 1);">{breakEvenOilChange}</span
-						> oil changes.
+					<div class="">
+						You'll break even after
+						<span class="font-bold">
+							{breakEvenOilChange}
+						</span> oil changes.
 					</div>
 				{/if}
 			</div>
-			<div class="py-1" style="color: rgba(0, 0, 0, .5);">
+			<div class="py-1">
 				After {numOilChanges} oil changes you'll have saved
-				<span class="opacity-100" style="color: rgba(0, 0, 0, 1);">
+				<span class="font-bold">
 					${potentialSavings}
 				</span>
 				by changing your own oil.
@@ -339,12 +346,12 @@
 	</div>
 
 	<!-- Chart -->
-	<div class="">
+	<div class="rounded-md bg-white p-4">
 		<Line {data} {options} />
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	/* Internal Range Styles */
 	input[type='range'].slider-internal::-webkit-slider-thumb {
 		background: #38bdf8;
@@ -365,6 +372,7 @@
 	input[type='range'] {
 		height: 20px;
 		-webkit-appearance: none;
+		background-color: transparent;
 		margin: 0px 0;
 		width: 100%;
 	}

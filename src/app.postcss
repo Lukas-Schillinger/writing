@@ -14,3 +14,27 @@
 	src: url('/fonts/jetbrains-mono.ttf');
 	font-weight: 100 900;
 }
+
+@layer base {
+	.dark {
+		@apply bg-slate-900 text-white;
+	}
+
+	a {
+		@apply text-blue-500;
+	}
+	a:hover {
+		text-decoration: underline 2px;
+	}
+
+	a:visited {
+		@apply text-purple-500;
+	}
+
+	.dark a {
+		@apply text-blue-300;
+	}
+	.dark a:visited {
+		@apply text-purple-300;
+	}
+}
