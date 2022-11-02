@@ -1,126 +1,52 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	export let navHeight: string = '4rem';
+
+	function buildBreadCrumbs(routeId: string) {
+		const segments = routeId.split('/');
+		const breadCrumbs = segments.map((element, index) => {
+			const breadCrumb = segments.slice(0, index);
+			if (breadCrumb) {
+				breadCrumb.push(element);
+			}
+			return breadCrumb.join('/');
+		});
+		return breadCrumbs;
+	}
+
+	$: breadCrumbs = buildBreadCrumbs($page.routeId);
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
-	<nav data-sveltekit-prefetch>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}>
-				<a href="/">Home</a>
-			</li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a href="/about">About</a>
-			</li>
-			<li class:active={$page.url.pathname === '/todos'}>
-				<a href="/todos">Todos</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+<header class="fixed z-50" style="width: 100vw; height: {navHeight};">
+	<div
+		class="container mx-auto h-full max-w-[65ch] px-3 md:px-1 flex items-center"
+	>
+		<nav
+			class="bg-slate-300 bg-opacity-50 backdrop-blur-sm shadow-lg py-2 px-4 rounded-xl w-full flex gap-1 whitespace-nowrap"
+			data-sveltekit-prefetch
+		>
+			{#each breadCrumbs as crumb, index}
+				{#if index == 0}
+					<a class="link" href="/">home</a>
+					<span>/</span>
+				{:else if index == breadCrumbs.length - 1}
+					<div class="text-ellipsis overflow-hidden">
+						{crumb.split('/').at(-1)}
+					</div>
+				{:else}
+					<a class="link" href={crumb}>{crumb.split('/').at(-1)}</a>
+					<span>/</span>
+				{/if}
+			{/each}
+		</nav>
 	</div>
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
+	.link {
+		color: rgb(59 130 246);
 	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--accent-color);
+	.link:hover {
+		text-decoration: underline 2px;
 	}
 </style>

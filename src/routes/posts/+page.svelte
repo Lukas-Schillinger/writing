@@ -1,6 +1,6 @@
-<div class="container">
-	<div class="mx-auto px-4 max-w-[65ch]">
-		<div class="text-6xl font-extrabold pb-8 pt-4">Post Directory</div>
+<div class="">
+	<div class="container mx-auto px-3 max-w-[65ch]">
+		<div class="text-6xl font-extrabold pb-8">Post Directory</div>
 		<ul>
 			<li>
 				<a

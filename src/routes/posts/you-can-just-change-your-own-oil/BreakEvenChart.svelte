@@ -217,7 +217,7 @@
 	<div class="flex gap-8 mb-4">
 		<!-- Internal Oil Change Controls -->
 		<div class="flex-1">
-			<div class="font-bold decoration-sky-400 underline decoration-4 my-4">
+			<div class="font-bold decoration-sky-400 underline decoration-4 mb-4">
 				Change Your Own Oil
 			</div>
 
@@ -267,7 +267,7 @@
 
 		<!-- External Oil Change Controls -->
 		<div class="flex-1">
-			<div class="font-bold decoration-red-400 underline decoration-4 my-4">
+			<div class="font-bold decoration-red-400 underline decoration-4 mb-4">
 				Pay for Oil Change
 			</div>
 			<div class="my-2">

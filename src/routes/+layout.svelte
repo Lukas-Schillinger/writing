@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
 	import '../app.postcss';
+	import Header from '$lib/Header.svelte';
+
+	const navHeight: string = '4rem';
 </script>
 
-<header />
+<Header {navHeight} />
 
-<slot />
+<div style="padding-top: 5rem;">
+	<slot />
+</div>

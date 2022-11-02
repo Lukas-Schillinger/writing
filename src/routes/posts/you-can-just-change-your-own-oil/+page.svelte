@@ -17,32 +17,21 @@
 	<meta name="description" content="Instructions for changing engine oil" />
 </svelte:head>
 
-<div class="container mx-auto p-3 max-w-[65ch]">
-	<div class="flex justify-between">
-		<div>
-			<a
-				class="text-blue-500 hover:underline visited:text-purple-600"
-				href="/posts"
-			>
-				posts
-			</a>
-			/ You Can Just Change Your Own Oil
-		</div>
-		<a
-			href="https://github.com/Lukas-Schillinger/writing/tree/master/src/routes/posts/you-can-just-change-your-own-oil"
-			target="_blank"
-			rel="noopener noreferrer"
-			title="Github Repo"
-		>
-			<Icon src={Github} class="w-5 h-5" />
-		</a>
-	</div>
+<div class="container mx-auto px-3 max-w-[65ch]">
 	<div class="">
-		<div class="text-6xl font-extrabold pt-6 pb-4">
+		<div class="text-6xl font-extrabold pb-4">
 			You Can Just Change Your Own Oil
 		</div>
-
-		<div class="my-2 text-sm opacity-50">
+		<div class="w-min">
+			<a
+				href="https://github.com/Lukas-Schillinger/writing/tree/master/src/routes/posts/you-can-just-change-your-own-oil"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<Icon src={Github} class="w-5 h-5" />
+			</a>
+		</div>
+		<div class="pb-2 pt-2 text-sm opacity-50">
 			updated
 			{#await lastUpdate}
 				<svg
@@ -67,11 +56,27 @@
 			{/await}
 		</div>
 
-		<div>
+		<p class="py-2 prose">
 			Changing your car's engine oil is quick, easy, and significantly cheaper
 			than having it done at an auto shop. This guide assumes no prior knowledge
 			and will prepare you for every step along the way.
+		</p>
+		<div class="py-4">
+			<span class="font-bold">Table of Contents</span>
+			<ul class="text-blue-500 mt-2">
+				<li><a class="hover:underline" href="#background">Background</a></li>
+				<li>
+					<a class="hover:underline" href="#cost-calculator">Cost Calculator</a>
+				</li>
+				<li><a class="hover:underline" href="#materials">Materials</a></li>
+				<li>
+					<a class="hover:underline" href="#instructions">Instructions</a>
+				</li>
+				<li>
+					<a class="hover:underline" href="#misc">Miscellaneous</a>
+				</li>
+			</ul>
 		</div>
 	</div>
-	<div class="py-8"><Content /></div>
+	<div class=""><Content /></div>
 </div>
