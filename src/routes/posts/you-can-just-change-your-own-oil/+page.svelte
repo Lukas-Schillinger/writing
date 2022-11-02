@@ -1,22 +1,15 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	import { Icon } from '@steeze-ui/svelte-icon';
 	import { Github } from '@steeze-ui/simple-icons';
 
 	import Content from './Content.svelte';
-	import BreakEvenChart from './BreakEvenChart.svelte';
 	import getLastRepoUpdate from '$lib/lastRepoUpdate';
 
-	let lastUpdate: Promise<string>;
-
-	onMount(async () => {
-		lastUpdate = getLastRepoUpdate(
-			'Lukas-Schillinger',
-			'writing',
-			'src/routes/posts/you-can-just-change-your-own-oil'
-		);
-	});
+	let lastUpdate = getLastRepoUpdate(
+		'Lukas-Schillinger',
+		'writing',
+		'src/routes/posts/you-can-just-change-your-own-oil'
+	);
 </script>
 
 <svelte:head>
@@ -39,11 +32,12 @@
 			href="https://github.com/Lukas-Schillinger/writing/tree/master/src/routes/posts/you-can-just-change-your-own-oil"
 			target="_blank"
 			rel="noopener noreferrer"
+			title="Github Repo"
 		>
 			<Icon src={Github} class="w-5 h-5" />
 		</a>
 	</div>
-	<div class="mx-auto">
+	<div class="">
 		<div class="text-6xl font-extrabold pt-6 pb-4">
 			You Can Just Change Your Own Oil
 		</div>
@@ -79,9 +73,5 @@
 			and will prepare you for every step along the way.
 		</div>
 	</div>
-	<div class="mx-auto py-8">
-		<h1 class="font-extrabold text-4xl pb-2">Cost Calculator</h1>
-		<BreakEvenChart />
-	</div>
-	<div><Content /></div>
+	<div class="py-8"><Content /></div>
 </div>

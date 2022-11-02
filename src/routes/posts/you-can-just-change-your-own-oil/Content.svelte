@@ -8,6 +8,8 @@
 	import waste_oil_disposal from '$lib/assets/you can just change your own oil/waste_oil_disposal.jpg';
 	import waste_oil_vessel from '$lib/assets/you can just change your own oil/waste_oil_vessel.jpg';
 	import wheel_ramps from '$lib/assets/you can just change your own oil/wheel_ramps.jpg';
+
+	import BreakEvenChart from './BreakEvenChart.svelte';
 </script>
 
 <div class="prose mx-auto">
@@ -55,6 +57,10 @@
 			Github repo.
 		</a>
 	</p>
+	<div class="mx-auto py-8">
+		<h1 class="font-extrabold text-4xl pb-2">Cost Calculator</h1>
+		<BreakEvenChart />
+	</div>
 	<h1 id="materials">Materials</h1>
 	<h2 id="socket-wrench">Socket Wrench</h2>
 	<p>
