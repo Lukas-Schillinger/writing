@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let name: string;
-	export let githubLink: string;
+	export let link: string;
 </script>
 
 <div class="rounded-md border border-slate-600 shadow-lg">
@@ -10,7 +10,7 @@
 		<div class="px-4 py-2 text-lg font-bold">{name}</div>
 	</div>
 	<div class=" p-4 ">
-		<div class="pb-2"><a class="" href={githubLink}>github</a></div>
+		<div class="pb-2"><a class="" href={link}>project link</a></div>
 		<slot />
 	</div>
 </div>

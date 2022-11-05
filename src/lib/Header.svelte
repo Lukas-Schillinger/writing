@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
 	import { Icon } from '@steeze-ui/svelte-icon';
@@ -9,6 +8,13 @@
 
 	function toggleDarkMode() {
 		document.body.classList.toggle('dark');
+
+		// local storage reflects document state
+		if (document.body.classList.contains('dark')) {
+			localStorage.setItem('theme', 'dark');
+		} else {
+			localStorage.setItem('theme', 'light');
+		}
 
 		// I'm still unclear how this works.
 		// Adapted from https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
@@ -35,7 +41,7 @@
 	$: breadCrumbs = buildBreadCrumbs($page.routeId);
 </script>
 
-<header class="fixed z-50" style="width: 100vw; height: {navHeight};">
+<header class="fixed z-50" style="width: 100%; height: {navHeight};">
 	<div
 		class="container mx-auto flex h-full max-w-[65ch] items-center pb-3 pt-2 md:px-1"
 	>
@@ -44,23 +50,22 @@
 			data-sveltekit-prefetch
 		>
 			{#each breadCrumbs as crumb, index}
+				<!-- home link -->
 				{#if index == 0}
 					<a class="link" href="/">home</a>
 					<span>/</span>
+					<!-- final link -->
 				{:else if index == breadCrumbs.length - 1}
 					<div class="overflow-hidden text-ellipsis">
 						{crumb.split('/').at(-1)}
 					</div>
+					<!-- middle links -->
 				{:else}
 					<a class="link" href={crumb}>{crumb.split('/').at(-1)}</a>
 					<span>/</span>
 				{/if}
 			{/each}
-			<button
-				class="ml-auto"
-				style="margin-left: auto;"
-				on:click={toggleDarkMode}
-			>
+			<button class="ml-auto" on:click={toggleDarkMode}>
 				<div id="dark-mode-icon">
 					<Icon src={Sun} class="h-6 w-6" theme="mini" />
 				</div>

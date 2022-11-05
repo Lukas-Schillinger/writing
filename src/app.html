@@ -7,6 +7,22 @@
 		%sveltekit.head%
 	</head>
 	<body class="">
+		<script>
+			// adapted from https://github.com/donavon/use-dark-mode
+			const themeKey = 'theme';
+			if (localStorage.getItem('theme')) {
+				if (localStorage.theme === 'dark') {
+					document.body.classList.add('dark');
+				}
+			} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				localStorage.setItem(themeKey, 'dark');
+				document.body.classList.add('dark');
+			} else if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				localStorage.setItem(themeKey, 'light');
+			} else {
+				localStorage.setItem(themeKey, 'light');
+			}
+		</script>
 		%sveltekit.body%
 	</body>
 </html>
