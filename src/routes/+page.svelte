@@ -12,9 +12,6 @@
 			<li>
 				<a class="link" href="/projects">Projects</a>
 			</li>
-			<li>
-				<div class="link">About</div>
-			</li>
 		</ul>
 	</div>
 </div>

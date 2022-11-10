@@ -12,7 +12,7 @@
 	<title>Wend</title>
 </svelte:head>
 
-<div class="relative -mt-20 overflow-clip">
+<div class="light relative -mt-20 overflow-clip">
 	<div class="overflow-y-auto">
 		<Intro />
 		<DevOps />
