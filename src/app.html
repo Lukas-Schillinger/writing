@@ -23,9 +23,6 @@
 				// If the user doesn't have a theme set but has a color scheme preference
 				localStorage.setItem(themeKey, 'dark');
 				document.body.classList.add('dark');
-			} else if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				// undefined prefers-color-scheme or prefers-color-scheme value doesn't match?
-				localStorage.setItem(themeKey, 'light');
 			} else {
 				// If the user doesn't have a set theme or color scheme preference default to light
 				localStorage.setItem(themeKey, 'light');

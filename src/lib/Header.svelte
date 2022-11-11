@@ -43,11 +43,10 @@
 
 <header class="fixed z-50" style="width: 100%; height: {navHeight};">
 	<div
-		class="container mx-auto flex h-full max-w-[65ch] items-center pb-3 pt-2 md:px-1"
+		class="container mx-auto flex h-full max-w-[65ch] items-center px-2 pb-3 pt-2 md:px-1"
 	>
 		<nav
 			class="flex w-full gap-1 whitespace-nowrap rounded-full bg-slate-300 bg-opacity-50 py-2 px-4 shadow-lg backdrop-blur-sm dark:bg-slate-500 dark:bg-opacity-50"
-			data-sveltekit-prefetch
 		>
 			{#each breadCrumbs as crumb, index}
 				<!-- home link -->

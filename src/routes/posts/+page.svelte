@@ -11,6 +11,9 @@
 					You Can Just Change Your Own Oil
 				</a>
 			</li>
+			<li>
+				<a href="posts/easy-svelte-dark-mode"> Easy Svelte Dark Mode </a>
+			</li>
 		</ul>
 	</div>
 </div>

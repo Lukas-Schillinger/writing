@@ -16,25 +16,33 @@
 }
 
 @layer base {
+	/* Dark mode styling */
 	.dark {
 		@apply bg-slate-900 text-white;
 	}
 
+	/* Anchor styling */
 	a {
 		@apply text-blue-500;
 	}
 	a:hover {
 		text-decoration: underline 2px;
 	}
-
 	a:visited {
 		@apply text-purple-500;
 	}
-
 	.dark a {
 		@apply text-blue-300;
 	}
 	.dark a:visited {
 		@apply text-purple-300;
+	}
+
+	/* Selection (click and drag highlight) styling */
+	::selection {
+		@apply bg-slate-900 text-white;
+	}
+	.dark ::selection {
+		@apply bg-fuchsia-400 text-slate-900;
 	}
 }
