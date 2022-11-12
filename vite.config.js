@@ -1,14 +1,17 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { imagetools } from 'vite-imagetools'
+import { imagetools } from 'vite-imagetools';
 
 /** @type {import('vite').UserConfig} */
 const config = {
 	plugins: [
-		sveltekit(), 
+		sveltekit(),
 		imagetools({
 			defaultDirectives: () => {
-				// automatically convert all images to webp at build
-				return new URLSearchParams({'format': 'webp'})
+				return new URLSearchParams({
+					format: 'avif;webp;',
+					picture: true,
+					width: '256;384;512;640;'
+				});
 			}
 		})
 	]

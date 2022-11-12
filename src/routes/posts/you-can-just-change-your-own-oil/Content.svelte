@@ -9,10 +9,14 @@
 	import waste_oil_vessel from '$lib/assets/you can just change your own oil/waste_oil_vessel.jpg';
 	import wheel_ramps from '$lib/assets/you can just change your own oil/wheel_ramps.jpg';
 
+	import Picture from '$lib/Picture.svelte';
+
 	import BreakEvenChart from './BreakEvenChart.svelte';
 </script>
 
-<div class="prose-a:link prose  prose-slate dark:prose-invert">
+<div
+	class="prose-a:link prose prose-img:mx-auto prose-img:max-h-[24rem] dark:prose-invert"
+>
 	<div id="background" class="pt-12">
 		<h1 id="">Background</h1>
 		<p>
@@ -99,7 +103,7 @@
 			backwards.
 		</p>
 		<p>
-			<img src={wheel_ramps} alt="wheel ramps" />
+			<Picture src={wheel_ramps} alt="wheel ramps" />
 		</p>
 		<p>
 			The biggest drawback of using ramps is that the wheels cannot be removed
@@ -137,7 +141,7 @@
 			to prevent your car from rolling backwards.
 		</p>
 		<p>
-			<img src={jack_point} alt="jack point instructions" />
+			<Picture src={jack_point} alt="jack point instructions" />
 		</p>
 		<p>
 			When purchasing a hydraulic floor jack ensure that it is sufficient for
@@ -191,7 +195,7 @@
 			dumped out later through the top hole.
 		</p>
 		<p>
-			<img
+			<Picture
 				src={waste_oil_vessel}
 				alt="waste oil collection and storage vessel"
 			/>
@@ -229,7 +233,7 @@
 			attachment. These tools will also work on Lexus cars.
 		</p>
 		<p>
-			<img src={toyota_oil_filter_tool} alt="toyota oil filter tool" />
+			<Picture src={toyota_oil_filter_tool} alt="toyota oil filter tool" />
 		</p>
 		<p>
 			Ensure that the Toyota oil filter housing removal tool you choose will fit
@@ -251,7 +255,7 @@
 			housing/canister to create a handle with which it can be twisted out.
 		</p>
 		<p>
-			<img src={oil_filter_swivel_wrench} alt="oil filter swivel wrench" />
+			<Picture src={oil_filter_swivel_wrench} alt="oil filter swivel wrench" />
 		</p>
 		<p>
 			Swivel wrenches are useful for loosening oil filter housing/canisters
@@ -273,7 +277,7 @@
 			any vehicle.
 		</p>
 		<p>
-			<img src={oil_filter_pliers} alt="oil filter pliers" />
+			<Picture src={oil_filter_pliers} alt="oil filter pliers" />
 		</p>
 		<p>
 			<a
@@ -360,17 +364,9 @@
 			RockAuto.
 		</p>
 		<div class="flex">
-			<img
-				class="w-1/2 object-contain"
-				src={rockauto_oil_filter}
-				alt="RockAuto"
-			/>
+			<Picture src={rockauto_oil_filter} alt="RockAuto" />
 
-			<img
-				class="w-1/2 object-contain"
-				src={autozone_oil_filter}
-				alt="Autozone"
-			/>
+			<Picture src={autozone_oil_filter} alt="Autozone" />
 		</div>
 		<p>
 			Oil filters will differ between manufacturers and models. The filter
@@ -509,7 +505,7 @@
 			disposal. Please don't dump your oil in the ground.
 		</p>
 		<p>
-			<img src={waste_oil_disposal} alt="IMG_9024.JPG" />
+			<Picture src={waste_oil_disposal} alt="Picture_9024.JPG" />
 		</p>
 		<h2 id="stuck-bolts">Stuck Bolts</h2>
 		<p>
@@ -524,7 +520,7 @@
 </div>
 
 <style>
-	img {
+	picture {
 		max-height: 16rem;
 		margin-left: auto;
 		margin-right: auto;
