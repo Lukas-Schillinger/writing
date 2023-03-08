@@ -3,10 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="stylesheet" href="/prism-one-dark.css" />
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-prefetch>
+	<body data-sveltekit-preload-data="hover">
 		<script>
 			// set dark mode preference
 			// adapted from https://github.com/donavon/use-dark-mode
@@ -28,6 +29,6 @@
 				localStorage.setItem(themeKey, 'light');
 			}
 		</script>
-		%sveltekit.body%
+		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

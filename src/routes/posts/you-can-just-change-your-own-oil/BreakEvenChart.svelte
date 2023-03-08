@@ -213,7 +213,7 @@
 	ChartJS.register(Title, Legend, LineElement, LinearScale, PointElement);
 </script>
 
-<div class="">
+<div class="mb-8 w-full">
 	<div class="mb-4 flex gap-8">
 		<!-- Internal Oil Change Controls -->
 		<div class="flex-1">
@@ -346,7 +346,7 @@
 	</div>
 
 	<!-- Chart -->
-	<div class="rounded-md bg-white p-4">
+	<div class="w-full rounded-md bg-white p-4">
 		<Line {data} {options} />
 	</div>
 </div>

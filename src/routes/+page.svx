@@ -1,0 +1,4 @@
+# Home
+
+- [Posts](/posts)
+- [Projects](/projects)
