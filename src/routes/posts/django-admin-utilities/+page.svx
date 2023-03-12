@@ -1,0 +1,328 @@
+<script>
+    import FrontMatter from '$lib/FrontMatter.svelte'
+
+    const title = "Django Admin Utilities"
+    const path = "src/routes/posts/django-admin-utilities"
+</script>
+
+<FrontMatter {title} {path} />
+
+### Table of Contents
+
+- Export Models to CSV files
+- Import Models from CSV files
+
+The examples below use the following model:
+
+```python
+class Spec(models.Model):
+    year = models.CharField(max_length=8)
+    make = models.CharField(max_length=16)
+    model = models.CharField(max_length=64)
+```
+
+<br />
+
+# Export Models to CSV Files
+
+A django model action to download selected models from the admin dashboard. 
+
+![CSV download admin dashboard example](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/django-admin-utilities/export_to_csv.png)
+
+Admin actions are added using the `@admin.action` decorator. The name of the action is set using the `description` key word argument
+
+Django passes three arguments to admin actions: 
+- the `admin.ModelAdmin` instance that called the action
+- a `request` which is the same object passed to views
+- and a `queryset` which is the set of objects you've selected an action to be applied to
+
+In this example only the `queryset` parameter is used but because these are all keyword arguments they need to be included in the function. 
+
+```python
+@admin.action(description="Export to CSV")
+def export_to_csv(modeladmin, request, queryset):
+```
+
+First we generate a filename using the model name. This is found be accessing the `queryset.model.__name__` property. Don't forget to add a file extension to the filename. 
+
+```python
+filename = f"{queryset.model.__name__}.csv"
+```
+
+Next we create the `HttpResponse` object to write data to. The `HttpResponse.content_type` property tells the browser its receiving `text/csv` content and the `HttpResponse.headers` property tells the browser its receiving said content as an attached file (instead of content to display in browser). 
+
+```python
+response = HttpResponse(
+    content_type="text/csv",
+    headers={
+        "Content-Disposition": f'attachment; filename="{filename}"'
+    },
+)
+```
+
+Next we create a `csv.writer()` instance to copy model data to the `HttpResponse` object. 
+
+```python
+writer = csv.writer(response)
+```
+
+Here we create the header column using the model's field names. Field names are accessed through the `queryset.model._meta.fields` property. 
+
+```python
+field_names = []
+for field in queryset.model._meta.fields:
+    field_names.append(field.name)
+writer.writerow(field_names)
+```
+
+Next model data is copied. 
+
+```python
+for model in queryset:
+    model_values = []
+    for field in field_names:
+        model_values.append(model.__dict__[field])
+    writer.writerow(model_values)
+```
+
+Putting it all together this is what the final function looks like. 
+
+```python
+@admin.action(description="Export to CSV")
+def export_to_csv(modeladmin, request, queryset):
+    filename = f"{queryset.model.__name__}.csv"
+    response = HttpResponse(
+        content_type="text/csv",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"'
+        },
+    )
+    writer = csv.writer(response)
+
+    field_names = []
+    for field in queryset.model._meta.fields:
+        field_names.append(field.name)
+    writer.writerow(field_names)
+
+    for model in queryset:
+        model_values = []
+        for field in field_names:
+            model_values.append(model.__dict__[field])
+        writer.writerow(model_values)
+
+    return response
+```
+
+To use this function it needs to be added to a model's `admin.ModelAdmin` instance. Don't forget that the `actions` property needs to be declared as a list (or tuple) even if it only contains one item. 
+
+```python
+@admin.register(Spec)
+class SpecAdmin(admin.ModelAdmin):
+    actions = [export_to_csv]
+```
+
+You can now export models to CSV files from the django admin dashboard. 
+
+# Import Models from CSV Files
+
+A django admin view for importing models from a CSV. Importing models is more involved than exporting them. 
+
+The example used here is for a single purpose CSV upload that is contained in the `admin.ModelAdmin` instance. 
+
+This example is adapted from the [django-admin-cookbook](https://books.agiliq.com/projects/django-admin-cookbook/en/latest/import.html)
+
+**This is an insecure method of including CSV uploads in the admin dashboard and will not require admin authentication. Don't use this in production!**
+
+![CSV model import admin dashboard example](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/django-admin-utilities/import_csv_button.png)
+
+First, a URL for accessing this admin view is monkey patched into the `get_urls()` method of the `admin.ModelAdmin` instance. The URL can be added in the regular `project/project/urls.py` file but this method keeps the entire process contained to the `model.ModelAdmin` instance. 
+
+```python
+def get_urls(self):
+    urls = super().get_urls()
+    my_urls = [
+        path("spec-import/", self.import_vehicle_specs_view),
+    ]
+    return my_urls + urls
+```
+
+Then an `import_vehicle_specs_view()` function is added that follows the same logic as a regular django view. 
+
+```python
+def import_vehicle_specs_view(self, request: HttpRequest):
+```
+
+If this view receives a `GET` request it returns a `file_upload_form.html` template with a `FileUploadForm()` form. In the example below my app name is "garage" and the template is kept in the `project/garage/templates/garage` directory. 
+
+```python
+context = {"form": FileUploadForm()}
+return render(request, "garage/file_upload_form.html", context)
+```
+
+The `FileUploadForm()` is a regular django form and can be kept in the `project/app_name/forms.py` directory. The `"class": "vFileField"` attribute is added to match the appearence of the django admin file input element. 
+
+```python
+from django import forms
+
+
+class FileUploadForm(forms.Form):
+    file = forms.FileField(
+        widget=forms.ClearableFileInput(attrs={"class": "vFileField"})
+    )
+
+```
+
+The `file_upload_form.html` template is a regular django view template. The `admin.base_site.html` template and class names are included to match the appearence of the django admin site. 
+
+```html
+{% extends 'admin/base_site.html' %} 
+
+{% block content %}
+<form action="." method="POST" enctype="multipart/form-data">
+	<div class="form-row">{{ form }} {% csrf_token %}</div>
+	<input
+		class="default"
+		style="float: left; margin-top: 1rem"
+		type="submit"
+		value="Save" />
+</form>
+{% endblock %}
+```
+
+Don't forget to include the `{% csrf_token %}` in your template. 
+
+![CSV upload form](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/django-admin-utilities/import_csv_page.png)
+
+When the `import_vehicle_specs_view()` receives a `POST` request it will need to:
+
+- find the CSV file that was uploaded
+- read the CSV file
+- take the data contained in each row and create a new model out of it
+
+When a file is uploaded through a django view it's accessed through the request object using `request.FILES['file_name']`. 'file_name' is the `id` attribute of the input element it was uploaded with. If you're using a django form to upload files the 'file_name' is the form field variable which in this case is 'file'.  
+
+```python
+if request.method == "POST":
+    file = request.FILES["file"]
+```
+
+The python `csv.reader()` function expects to receive an iterator that returns strings. This is okay if you're reading a file with the default `open()` function; however, files uploaded to django return bytecode when iterated. 
+
+To iterate the uploaded file directly into `csv.reader()` the bytecode must first be decoded into strings. The following function accepts the `request.FILES['file]` iterator and wraps it in another iterator that converts the bytecode to strings. 
+
+Note that your particular file may be encoded in a format other than UTF-8. 
+
+```python
+def decode_utf8(self, input_iterator):
+    for line in input_iterator:
+        yield line.decode("utf-8")
+```
+
+Here we include a new function to accept the uploaded file and create models from its data. This implementation iterates through the file and uploads the entire dataset at once using `.bulk_create()`. Depending on the size of your data and the amount of RAM available you may need to upload in chunks using `request.FILES['file'].chunks()`. 
+
+The number of items created is returned to check that the upload was completed successfully. 
+
+```python
+def import_vehicle_specs(self, file: UploadedFile) -> int:
+    specs = []
+    reader = csv.reader(self.decode_utf8(file))
+    for line in reader:
+        new_spec = Spec(
+            year=line[0], 
+            make=line[1], 
+            model=line[2], 
+            body_style=line[3]
+        )
+        specs.append(new_spec)
+    Spec.objects.bulk_create(specs)
+    return len(specs)
+```
+
+A user message is included with the number of items created to check that the upload was completed successfully. This appears as a banner at the top of the window. The redirect used here will return the user back to the model list view page.
+
+```python
+if request.method == "POST":
+    file = request.FILES["file"]
+    num_specs_created = self.import_vehicle_specs(file)
+    self.message_user(
+        request, 
+        f"Created {num_specs_created} 
+        Vehicle Specs"
+    )
+    return redirect("..")
+```
+
+Adding a CSV upload button to the admin dashboard is done by overriding the `change_list_template` property of the `admin.ModelAdmin` instance. 
+
+```python
+@admin.register(Spec)
+class SpecAdmin(admin.ModelAdmin):
+    change_list_template = "garage/spec_change_list.html"
+```
+
+The `change_list_template` can be kept in the same directory as file upload template. Here the template extends the base `admin/change_list.html` template by filling the `{% block object-tools-items %}` block. Adding `{{ block.super }}` reinstantiates the previous block items as otherwise we'd lose the "add model" button. The anchor element link points towards the URL added to the `admin.ModelAdmin`'s `get_url()` method. 
+
+The `<li>` and `<a>` tags are included to match the appearence of the django admin site.
+
+```html
+{% extends 'admin/change_list.html' %} 
+
+{% block object-tools-items %}
+<li>
+	<a href="spec-import/">Import Vehicle Specs</a>
+</li>
+{{ block.super }} 
+{% endblock %}
+
+```
+
+Below is the completed `admin.ModelAdmin` class. 
+
+```python
+@admin.register(Spec)
+class SpecAdmin(admin.ModelAdmin):
+    change_list_template = "garage/spec_change_list.html"
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path("spec-import/", self.import_vehicle_specs_view),
+        ]
+        return my_urls + urls
+
+    def decode_utf8(self, input_iterator):
+        for line in input_iterator:
+            yield line.decode("utf-8")
+
+    def import_vehicle_specs(self, file: UploadedFile) -> int:
+        specs = []
+        reader = csv.reader(self.decode_utf8(file))
+        for line in reader:
+            new_spec = Spec(
+                year=line[0], 
+                make=line[1], 
+                model=line[2], 
+                body_style=line[3]
+            )
+            specs.append(new_spec)
+        Spec.objects.bulk_create(specs)
+        return len(specs)
+
+    def import_vehicle_specs_view(self, request: HttpRequest):
+        if request.method == "POST":
+            file = request.FILES["file"]
+            num_specs_created = self.import_vehicle_specs(file)
+            self.message_user(
+                request, 
+                f"Created {num_specs_created} Vehicle Specs"
+            )
+            return redirect("..")
+        context = {"form": FileUploadForm()}
+        return render(
+            request, 
+            "garage/file_upload_form.html", 
+            context
+        )
+```
+
+You can now upload CSV files to create models. 

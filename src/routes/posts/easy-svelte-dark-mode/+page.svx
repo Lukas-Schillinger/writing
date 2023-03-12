@@ -3,7 +3,6 @@
 
     const title = "Easy Svelte Dark Mode"
     const path = "src/routes/posts/easy-svelte-dark-mode"
-
 </script>
 
 <FrontMatter {title} {path} />

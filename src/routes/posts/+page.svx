@@ -2,3 +2,4 @@
 
 - [You Can Just Change Your Own Oil](/posts/you-can-just-change-your-own-oil)
 - [Easy Svelte Dark Mode](/posts/easy-svelte-dark-mode)
+- [Django Admin Utilities](/posts/django-admin-utilities)

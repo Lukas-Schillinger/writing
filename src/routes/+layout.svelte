@@ -27,10 +27,12 @@
 </script>
 
 <div class="flex w-full justify-center">
-	<div class="container prose prose-slate px-2 pb-4 dark:prose-invert">
+	<div
+		class="container prose prose-sm px-2 pb-4 dark:prose-invert sm:prose-base marker:text-fjord-400 prose-code:before:content-none prose-code:after:content-none"
+	>
 		<!-- Navbar -->
 		<div
-			class="sticky top-2 mt-0 mb-8 flex w-full justify-between rounded-full border-[0.5px] border-fjord-300 bg-fjord-200 bg-opacity-60 py-1 px-4 shadow-md shadow-fjord-400 backdrop-blur-sm dark:border-fjord-700 dark:bg-fjord-600 dark:bg-opacity-60 dark:shadow-fjord-900"
+			class="sticky top-2 mt-0 mb-8 flex w-full justify-between rounded-full border-[0.5px] border-fjord-300 bg-fjord-200 bg-opacity-60 py-1 px-4 shadow-md shadow-fjord-500 backdrop-blur-sm dark:border-fjord-700 dark:bg-fjord-600 dark:bg-opacity-60 dark:shadow-fjord-900"
 		>
 			<div class="flex gap-2">
 				<a href="/">Home</a>

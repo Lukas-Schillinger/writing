@@ -40,12 +40,16 @@
 		const responseJson = responseText ? JSON.parse(responseText) : undefined;
 
 		if (response.ok || response.status === 422) {
-			const lastCommit = responseJson[0].commit.author.date;
-			return formatDate(lastCommit);
+			try {
+				const lastCommit = responseJson[0].commit.author.date;
+				return formatDate(lastCommit);
+			} catch (e) {
+				console.log(`Error finding last commit for path ${URL}`);
+			}
 		} else {
 			console.log(responseText);
-			return formatDate('2022-10-28T20:17:26Z');
 		}
+		return formatDate('2022-10-28T20:17:26Z');
 	}
 
 	onMount(async () => {
@@ -54,8 +58,8 @@
 </script>
 
 <div class="mb-8">
-	<div class="text-3xl font-black sm:text-4xl">
-		<h1 class="mb-4">{title}</h1>
+	<div class="text-3xl font-black prose-h1:mb-12 sm:text-4xl">
+		<h1 class="">{title}</h1>
 	</div>
 	<div
 		class="flex max-w-max place-items-center gap-2 rounded-full border border-fjord-400 p-1.5 leading-none"

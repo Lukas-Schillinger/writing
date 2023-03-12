@@ -69,7 +69,13 @@
 
 		// set dependent variables
 		breakEvenOilChange = Math.floor(lineIntercept.x) + 1;
-		potentialSavings = externalPriceArray.at(-1) - internalPriceArray.at(-1);
+		const externalTotalCost = externalPriceArray.at(-1);
+		const internalTotalCost = internalPriceArray.at(-1);
+		if (externalTotalCost && internalTotalCost) {
+			potentialSavings = externalTotalCost - internalTotalCost;
+		} else {
+			potentialSavings = 0;
+		}
 
 		// plot arrays by updating the graph's data values
 		data.datasets[internalDataIndex].data =
@@ -134,10 +140,14 @@
 	function getLineSlope(yCoordinates: Array<number>): number {
 		const y1 = yCoordinates[0];
 		const y2 = yCoordinates.at(-1);
-		const rise = y2 - y1;
-		const run = yCoordinates.length - 1;
-		const slope = rise / run;
-		return slope;
+		if (y1 && y2) {
+			const rise = y2 - y1;
+			const run = yCoordinates.length - 1;
+			const slope = rise / run;
+			return slope;
+		} else {
+			return 0;
+		}
 	}
 
 	function getLineIntercept(
@@ -156,6 +166,7 @@
 		return interceptCoordinates;
 	}
 
+	/* I'm not sure why svelte-chartjs doesn't like the chartjs ChartData type. */
 	let data: ChartData<'line'> = {
 		datasets: [
 			{
