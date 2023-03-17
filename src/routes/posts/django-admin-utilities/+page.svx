@@ -129,9 +129,7 @@ A django admin view for importing models from a CSV. Importing models is more in
 
 The example used here is for a single purpose CSV upload that is contained in the `admin.ModelAdmin` instance. 
 
-This example is adapted from the [django-admin-cookbook](https://books.agiliq.com/projects/django-admin-cookbook/en/latest/import.html)
-
-**This is an insecure method of including CSV uploads in the admin dashboard and will not require admin authentication. Don't use this in production!**
+**This is an insecure method of adding CSV uploads to the admin dashboard and will bypass admin authentication. Don't use this in production!**
 
 ![CSV model import admin dashboard example](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/django-admin-utilities/import_csv_button.png)
 

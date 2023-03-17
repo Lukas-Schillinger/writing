@@ -115,7 +115,7 @@ My implementation is a slimmed down and less-versatile adaptation of the noflash
 ```js
 const themeKey = 'theme';
 
-// If the user has a theme preference saved use that
+// If the user has a saved theme preference in local storage use that
 if (localStorage.getItem(themeKey)) {
 	if (localStorage.theme === 'dark') {
 		document.body.classList.add('dark');
@@ -123,13 +123,15 @@ if (localStorage.getItem(themeKey)) {
 		document.body.classList.remove('dark');
 	}
 
-	// elif the user has a color scheme preference use that
+	// elif the user has a browser color scheme preference use that
 } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	localStorage.setItem(themeKey, 'dark');
 	document.body.classList.add('dark');
 
-	// else default to using the light theme
+	// else default to using the dark theme
 } else {
-	localStorage.setItem(themeKey, 'light');
+	localStorage.setItem(themeKey, 'dark');
 }
 ```
+
+You can now implement a dark mode toggle that applies color theme preferences without flashes of content. 

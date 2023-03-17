@@ -10,6 +10,19 @@
 		PointElement
 	} from 'chart.js/auto';
 
+	/* 
+		I'm very unhappy with chart.js and wish I had just used regular SVGs. See the
+		line chart example in the svelte examples page: 
+		https://svelte.dev/examples/area-chart
+
+		- chart.js typechecking is okay with how the options object is formatted but 
+		svelte-chartjs throws type warnings.
+
+		- the chart will resize to be smaller but will not resize to be bigger.
+		
+		- sometimes the chart will infinitely shrink inside the canvas.  
+	*/
+
 	// independent variables
 	let numOilChanges = 10;
 	let internalPrice = 32;

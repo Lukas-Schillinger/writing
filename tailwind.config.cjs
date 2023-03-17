@@ -6,7 +6,7 @@ const config = {
 	theme: {
 		fontFamily: {
 			sans: ['Inter', ...defaultTheme.fontFamily.sans],
-			mono: ['jetbrains-mono', ...defaultTheme.fontFamily.mono],
+			mono: [...defaultTheme.fontFamily.mono],
 			serif: [...defaultTheme.fontFamily.serif]
 		},
 		extend: {

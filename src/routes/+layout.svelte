@@ -28,16 +28,17 @@
 
 <div class="flex w-full justify-center">
 	<div
-		class="container prose prose-sm px-2 pb-4 dark:prose-invert sm:prose-base marker:text-fjord-400 prose-code:before:content-none prose-code:after:content-none"
+		class="container prose px-2 pb-4 dark:prose-invert marker:text-fjord-400 prose-code:before:content-none prose-code:after:content-none"
 	>
 		<!-- Navbar -->
 		<div
-			class="sticky top-2 mt-0 mb-8 flex w-full justify-between rounded-full border-[0.5px] border-fjord-300 bg-fjord-200 bg-opacity-60 py-1 px-4 shadow-md shadow-fjord-500 backdrop-blur-sm dark:border-fjord-700 dark:bg-fjord-600 dark:bg-opacity-60 dark:shadow-fjord-900"
+			class="sticky top-2 mt-0 mb-8 flex w-full justify-between rounded-full border-[0.5px] border-fjord-100 bg-fjord-50 bg-opacity-60 py-1 px-4 shadow-md shadow-fjord-500 backdrop-blur-sm dark:border-fjord-700 dark:bg-fjord-600 dark:bg-opacity-60 dark:shadow-fjord-900"
+			id="navbar"
 		>
-			<div class="flex gap-2">
-				<a href="/">Home</a>
-				<a href="/posts">Posts</a>
-				<a href="/projects">Projects</a>
+			<div class="flex gap-4 prose-a:no-underline">
+				<a class="hover:underline" href="/"> Home </a>
+				<a class="hover:underline" href="/posts">Posts</a>
+				<a class="hover:underline" href="/projects">Projects</a>
 			</div>
 			<button id="dark-mode-icon" on:click={toggleDarkMode}>
 				<Icon src={Sun} class="h-6 w-6" theme="mini" />
@@ -49,6 +50,7 @@
 </div>
 
 <style>
+	/* dark mode animation */
 	@keyframes spin {
 		to {
 			transform: rotate(90deg);
@@ -56,5 +58,12 @@
 	}
 	:global(.spin) {
 		animation: spin 0.3s;
+	}
+
+	/* hide navbar when printing */
+	@media print {
+		#navbar {
+			display: none;
+		}
 	}
 </style>

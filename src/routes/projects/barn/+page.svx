@@ -1,0 +1,52 @@
+<script lang="ts">
+    import FrontMatter from '$lib/FrontMatter.svelte'
+    import GithubLink from '$lib/GithubLink.svelte'
+
+    const title = "Barn"
+</script>
+
+<FrontMatter {title} />
+
+Barn is a vehicle maintenance journal for everyone.  
+
+<GithubLink path={"https://github.com/Lukas-Schillinger/barn"} label={"barn"} />
+
+This is a personal project to create a better way of recording maintenance work on my own car and those of friends and family. 
+
+Below is a screenshot of the notion database I was using previously. 
+
+![notion vehicle maintenance log](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/notion_maintenance_log.png?t=2023-03-15T23%3A32%3A03.604Z)
+
+My requirements for the project were pretty straightforward: 
+- Send an email or text notification that, based on my average mileage, a specific maintenance task was likely required soon. Say, an oil change.  
+- Include saved links for the oil filter and oil type from my last oil change so I can buy them ahead of time.
+- Organize vehicle specific information like engine oil capacity and lug nut torque for quick access when doing maintenance. 
+- Propopulate a form with the current date, estimated mileage, and common maintenance tasks to when saving records. 
+- If I'm working on someone else's car, create a printable sheet including what work was done, what materials were used, and an estimate for when they'll next need maintenance. 
+- Include a vehicle specific maintenance notification signup page.  
+
+Excel sets a very high bar for data management but most web and IOS vehicle maintenance trackers fail to exceed the features of a simple spreadsheet. Applications for commercial fleet management met most of my requirements but were unwieldly and charged exorbitant monthly subscriptions for what's essentially a CRUD app. 
+
+### Features
+
+- Save maintenance record dates, mileages, parts, and products used. 
+- Estimated service schedules based on average mileage. 
+- Managed customer record access with QR codes, SMS, and email.   
+
+### Technologies
+
+Backend
+- Django with django-rest-framework
+- PostgreSQL with full text and trigram search
+- Redis
+
+Frontend
+- Svelte with sveltekit
+- Tailwindcss
+
+Operations
+- DigitalOcean
+- Caddy web server
+- Cloudflare
+- Signalwire SMS
+- Postmark email

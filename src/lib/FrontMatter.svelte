@@ -5,7 +5,7 @@
 	import { Github } from '@steeze-ui/simple-icons';
 
 	export let title: string;
-	export let path: string;
+	export let path: string | undefined = undefined;
 
 	let lastRepoUpdate: string | undefined;
 
@@ -53,20 +53,24 @@
 	}
 
 	onMount(async () => {
-		lastRepoUpdate = await getLastRepoUpdate(path);
+		if (path) {
+			lastRepoUpdate = await getLastRepoUpdate(path);
+		}
 	});
 </script>
 
-<div class="mb-8">
-	<div class="text-3xl font-black prose-h1:mb-12 sm:text-4xl">
+<div class="">
+	<div class="text-3xl font-black prose-h1:mb-4 sm:text-4xl">
 		<h1 class="">{title}</h1>
 	</div>
-	<div
-		class="flex max-w-max place-items-center gap-2 rounded-full border border-fjord-400 p-1.5 leading-none"
-	>
-		<Icon src={Github} class="h-5 w-5" />
-		{#if lastRepoUpdate}
-			updated {lastRepoUpdate}
-		{/if}
-	</div>
+	{#if path}
+		<div
+			class="mb-8 flex max-w-max place-items-center gap-2 rounded-full border border-fjord-400 p-1.5 leading-none"
+		>
+			<Icon src={Github} class="h-5 w-5" />
+			{#if lastRepoUpdate}
+				updated {lastRepoUpdate}
+			{/if}
+		</div>
+	{/if}
 </div>

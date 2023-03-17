@@ -31,12 +31,15 @@ code[class*='language-'] ::-moz-selection {
 	background: #383e49;
 }
 
+/* -------- Overwrite default text highlight color */
 pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
 	text-shadow: none;
-	background: #9aa2b1;
+	/* background: #9aa2b1; */
+	/* fuchsia-700 */
+	background: #a21caf;
 }
 
 @media print {
@@ -52,9 +55,19 @@ pre[class*='language-'] {
 	overflow: auto;
 }
 
+/* -------- Overwrite default background color */
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-	background: #282c34;
+	/* background: #282c34; */
+	/* fjord-700 */
+	background: #3b4657;
+}
+
+/* -------- Add dark mode code block background color */
+.dark code[class*='language-'],
+.dark pre[class*='language-'] {
+	/* fjord-700 */
+	background: #2e3744;
 }
 
 /* Inline code */
