@@ -40,7 +40,11 @@
 				<a class="hover:underline" href="/posts">Posts</a>
 				<a class="hover:underline" href="/projects">Projects</a>
 			</div>
-			<button id="dark-mode-icon" on:click={toggleDarkMode}>
+			<button
+				id="dark-mode-icon"
+				name="dark mode toggle"
+				on:click={toggleDarkMode}
+			>
 				<Icon src={Sun} class="h-6 w-6" theme="mini" />
 			</button>
 		</div>

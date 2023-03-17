@@ -1,3 +1,5 @@
+<title>Posts Directory</title>
+
 # Posts Directory
 
 - [You Can Just Change Your Own Oil](/posts/you-can-just-change-your-own-oil)

@@ -59,6 +59,8 @@
 	});
 </script>
 
+<title>{title}</title>
+
 <div class="">
 	<div class="text-3xl font-black prose-h1:mb-4 sm:text-4xl">
 		<h1 class="">{title}</h1>
