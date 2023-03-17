@@ -42,10 +42,11 @@
 			</div>
 			<button
 				id="dark-mode-icon"
-				name="dark mode toggle"
+				aria-label="dark mode toggle"
 				on:click={toggleDarkMode}
 			>
 				<Icon src={Sun} class="h-6 w-6" theme="mini" />
+				<span class="sr-only">dark mode toggle</span>
 			</button>
 		</div>
 		<!-- Content -->
