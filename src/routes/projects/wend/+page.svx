@@ -11,40 +11,7 @@ Wend is a multistop route optimization application.
 
 <GithubLink path={"https://github.com/Lukas-Schillinger/wend"} label={"wend"} />
 
-To optimize TSP routes a 2D matrix is first generated containing travel time or route distance between each point. Using travel time yields more accurate results but requires knowledge of what kind of road is being traveled and how fast a vehicle can drive on it.
-
-Below is a sample distance matrix ouput. 
-
-```
-   A      B      C      D      E      F      G      H
-A [00000, 07213, 20284, 68826, 12281, 12842, 06767, 10250,],
-B [07985, 00000, 23637, 67790, 28805, 18456, 14305, 26177,],
-C [22727, 23216, 00000, 32975, 21679, 19012, 29672, 26733,],
-D [65092, 65581, 33278, 00000, 43606, 46425, 72036, 48032,],
-E [12203, 28698, 22369, 43658, 00000, 15992, 12394, 04267,],
-F [12851, 17456, 16441, 45308, 14798, 00000, 15109, 12170,],
-G [06905, 13551, 27413, 55279, 12410, 15025, 00000, 07930,],
-H [09188, 26110, 25792, 47046, 04306, 13404, 07919, 00000,],
-
-```
-
-Google Maps and Mapbox meter their time/distance matrix APIs per element. Because adding points results in an exponential increase in the number of elements in a matrix (`num_elements^num_elements`) it was unrealistic to rely on a metered service for matrix generation. I was especially surprised that both APIs bill for the `self -> self` calculations required for a full matrix. 
-
-[Valhalla](https://github.com/valhalla/valhalla) is an "Open Source Routing Engine for OpenStreetMap." It includes a configurable matrix generation API out of the box. The `docker-compose` files could also be configured to periodically update self-hosted OSM data. Although there were minor differences between Google Maps, Mapbox, and Valhalla matrices they were generally not significant enough to affect the ordering of optimized routes. 
-
-A unique feature of wend is the ability to create, edit, and delete points from a distance matrix without needing to regenerate the entire matrix. This is done by saving each point individually with its matrix index. `save` and `delete` signals listening to matrix point events are used to detect updates and apply changes as necessary. 
-
-Before routes can be calculated each address must be translated into coordinates in a process called geocoding. This is done with [Pelias](https://github.com/pelias/pelias), a "modular open-source geocoder using Elasticsearch." Pelias was chosen over the official OSM geocoder, Nominatim, because of its better parsing of partial addresses and ability to rank results based on administrative boundaries. In tests Pelias's geocoding was as accurate as Google Earth and Mapbox for most addresses but the open data it pulls from is not updated as quickly as paid geocoders.  
-
-Route optimization is done using [Google OR Tools](https://github.com/google/or-tools), an "open-source, fast and portable software suite for solving combinatorial optimization problems." The OR Tools contraint optimization library includes a specialized TSP solver that's easily configured through the python API. 
-
-An important requirement of this project was the ability to evenly distribute stops between multiple drivers and to optimize routes using either the driver's home address or the depot as the driver's last stop. These options are configurable from the Wend frontend and were easily integrated into the optimization step using the Google OR Tools python API. 
-
-Once routes have been created they are shared with drivers as a printout or web link. Implementing turn by turn directions with a product like [Mapbox's navigation API](https://www.mapbox.com/use-cases/turn-by-turn-navigation) was beyond the scope of this project. Instead, the Google Maps API is used to create a multi-stop directions link that opens in Google Maps if the driver has the app installed. For route printouts the directions link is included as a QR code. 
-
-The front-end can be run using `npm i, npm run dev` and the django back-end includes `docker-compose` instructions. The routing engine and geocoder, however, require significant amounts of data to instantiate and cannot be easily spun up. 
-
-### Features 
+## Features 
 
 - Optimize routes between multiple stops shared between multiple drivers. 
 - Configurable routing parameters. 
@@ -52,7 +19,7 @@ The front-end can be run using `npm i, npm run dev` and the django back-end incl
 - Share data with drivers using managed driver accounts. 
 - Manage deliveries with customizable receipts and sticker printer labels. 
 
-### Technologies
+## Technologies
 
 Back-End
 - Django with django-rest-framework
@@ -76,3 +43,40 @@ Operations
 - Cloudflare
 - Twilio SMS
 - Sendgrid email
+
+## About
+
+To optimize TSP routes a 2D matrix is first generated containing travel time or route distance between each point. Travel time matrices are more accurate than distance matrices. Generating matrices requires generating routes to and from each point from every other point. 
+
+Below is a sample distance matrix ouput. 
+
+```
+   A      B      C      D      E      F      G      H
+A [00000, 07213, 20284, 68826, 12281, 12842, 06767, 10250,],
+B [07985, 00000, 23637, 67790, 28805, 18456, 14305, 26177,],
+C [22727, 23216, 00000, 32975, 21679, 19012, 29672, 26733,],
+D [65092, 65581, 33278, 00000, 43606, 46425, 72036, 48032,],
+E [12203, 28698, 22369, 43658, 00000, 15992, 12394, 04267,],
+F [12851, 17456, 16441, 45308, 14798, 00000, 15109, 12170,],
+G [06905, 13551, 27413, 55279, 12410, 15025, 00000, 07930,],
+H [09188, 26110, 25792, 47046, 04306, 13404, 07919, 00000,],
+
+```
+
+Google Maps and Mapbox meter their time/distance matrix APIs per element. Because adding points results in an exponential increase in the number of elements in a matrix (`num_elements^num_elements`) API fees add up very quickly. I was especially surprised that both APIs bill for the `self -> self` calculations required for a full matrix. 
+
+[Valhalla](https://github.com/valhalla/valhalla) is an "Open Source Routing Engine for OpenStreetMap." It includes a configurable matrix generation API out of the box. The `docker-compose` files could also be configured to periodically update self-hosted OSM data. Although there were minor differences between Google Maps, Mapbox, and Valhalla matrices they were generally not significant enough to affect the ordering of optimized routes. 
+
+A unique feature of wend is the ability to create, edit, and delete points from a distance matrix without needing to regenerate the entire matrix. This is done by saving each point individually with its matrix index. `save` and `delete` signals listening to matrix point events are used to detect updates and apply changes as necessary. 
+
+Before routes can be calculated each address must be translated into coordinates in a process called geocoding. This is done with [Pelias](https://github.com/pelias/pelias), a "modular open-source geocoder using Elasticsearch." Pelias was chosen over the official OSM geocoder, Nominatim, because of its better parsing of partial addresses and ability to rank results based on administrative boundaries. In tests Pelias's geocoding was as accurate as Google Earth and Mapbox for most addresses but the open data it pulls from is not updated as quickly as paid geocoders.  
+
+Route optimization is done using [Google OR Tools](https://github.com/google/or-tools), an "open-source, fast and portable software suite for solving combinatorial optimization problems." The OR Tools contraint optimization library includes a specialized TSP solver. 
+
+An important requirement of this project was the ability to evenly distribute stops between multiple drivers and to optimize routes using either the driver's home address or the depot as the driver's last stop. These options are configurable from the Wend frontend and were easily integrated into the optimization step using the Google OR Tools python API. 
+
+Once routes have been created they are shared with drivers as a printout or web link. Implementing turn by turn directions with a product like [Mapbox's Navigation API](https://www.mapbox.com/use-cases/turn-by-turn-navigation) was beyond the scope of this project. Instead, the Google Maps API is used to create a multi-stop directions link that opens in Google Maps if the driver has the app installed. For route printouts the directions link is included as a QR code. 
+
+Delivery stickers can be generated that include the customer's name and address, the index of the delivery in the driver's route, and a driver specific Font Awesome icon. Delivery stickers are generating using regular HMTL and CSS `@media print` rules.  
+
+The front-end can be run using `npm i, npm run dev` and the django back-end includes `docker-compose` instructions. The routing engine and geocoder, however, require significant amounts of data to instantiate and cannot be easily spun up. 

@@ -28,7 +28,7 @@
 
 <div class="flex w-full justify-center">
 	<div
-		class="container prose px-2 pb-4 dark:prose-invert marker:text-fjord-400 prose-code:before:content-none prose-code:after:content-none"
+		class="container prose px-2 pb-4 dark:prose-invert marker:text-fjord-400 prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md"
 	>
 		<!-- Navbar -->
 		<div

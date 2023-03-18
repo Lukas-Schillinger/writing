@@ -11,37 +11,21 @@ Barn is a vehicle maintenance journal for everyone.
 
 <GithubLink path={"https://github.com/Lukas-Schillinger/barn"} label={"barn"} />
 
-This is a personal project to create a better way of recording maintenance work on my own car and those of friends and family. 
-
-Below is a screenshot of the notion database I was using previously. 
-
-![notion vehicle maintenance log](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/notion_maintenance_log.png?t=2023-03-15T23%3A32%3A03.604Z)
-
-My requirements for the project were pretty straightforward: 
-- Send an email or text notification that, based on my average mileage, a specific maintenance task was likely required soon. Say, an oil change.  
-- Include saved links for the oil filter and oil type from my last oil change so I can buy them ahead of time.
-- Organize vehicle specific information like engine oil capacity and lug nut torque for quick access when doing maintenance. 
-- Propopulate a form with the current date, estimated mileage, and common maintenance tasks to when saving records. 
-- If I'm working on someone else's car, create a printable sheet including what work was done, what materials were used, and an estimate for when they'll next need maintenance. 
-- Include a vehicle specific maintenance notification signup page.  
-
-Excel sets a very high bar for data management but most web and IOS vehicle maintenance trackers fail to exceed the features of a simple spreadsheet. Applications for commercial fleet management met most of my requirements but were unwieldly and charged exorbitant monthly subscriptions for what's essentially a CRUD app. 
-
-### Features
+## Features
 
 - Save maintenance record dates, mileages, parts, and products used. 
 - Estimated service schedules based on average mileage. 
 - Managed customer record access with QR codes, SMS, and email.   
 
-### Technologies
+## Technologies
 
 Backend
-- Django with django-rest-framework
+- Django with Django REST Framework
 - PostgreSQL with full text and trigram search
 - Redis
 
 Frontend
-- Svelte with sveltekit
+- Svelte with Sveltekit
 - Tailwindcss
 
 Operations
@@ -50,3 +34,84 @@ Operations
 - Cloudflare
 - Signalwire SMS
 - Postmark email
+
+## About
+
+Barn is a personal project to create a better way of recording maintenance work on my own car and those of friends and family. 
+
+My requirements for the project were pretty straightforward: 
+- Send an email or text notification that, based on my average mileage, a specific maintenance task was likely required soon. Say, an oil change.  
+- Include saved links for the oil filter and oil type from my last oil change so I can buy them ahead of time.
+- Organize vehicle specific information like engine oil capacity and lug nut torque for quick access when doing maintenance. 
+- Propopulate a record form with the current date, estimated mileage, and common maintenance tasks.  
+- If I'm working on someone else's car, create a printable sheet including what work was done, what materials were used, and an estimate for when they'll next need maintenance. 
+- Include a vehicle specific maintenance notification signup page.  
+
+Below is a screenshot of the notion database I was using previously. 
+
+![notion vehicle maintenance log](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/notion_maintenance_log.png?t=2023-03-15T23%3A32%3A03.604Z)
+
+Excel sets a very high bar for data management but most web and IOS maintenance trackers fail to exceed the features of a simple spreadsheet. Applications for commercial fleet management met most of my requirements but were unwieldly and charged exorbitant monthly subscriptions for what's essentially a CRUD app. 
+
+The Barn back-end is a fairly standard Django + Django REST Framework API implementation. The front-end is a Svelte + Sveltekit MPA. 
+
+The Barn UI was designed to have the information density of a spreadsheet with the usability and readability of a modern website. The layout and theming was heavily influenced by [Github](https://github.com/) and their impressive ability to communicate features with different shades of gray. The UI was implemented using [TailwindCSS](https://tailwindcss.com/), [Inter](https://rsms.me/inter/), [Heroicons](https://heroicons.com/), and a simple grayscale palette. 
+
+Below is a development preview of the maintenance records list view. 
+
+![barn records list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_records.png)
+
+I love that people name their cars so vehicle names are used as the primary identifier across the front-end. 
+
+Below is a development preview of the vehicle list view. 
+
+![barn vehicle list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_vehicles.png)
+
+Vehicle records include a specification with a year, make, and model. This will be expanded to incorporate more information from NHTSA databases such as the manufacturing series, engine model, and safety recalls.  
+
+Most websites use three dropdown selects to search vehicle specifications by year, make, and model. I've always found these tedious and wanted to implement a simpler form using filtered text search. 
+
+Below is a development preview of the vehicle creation form. 
+
+![barn vehicle spec search](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_vehicles_add.png)
+
+Simple text search was insufficient for searching vehicle specifications. The model name conventions used by different manufacturers vary (ES-350, Silverado 2500 Crew, etc.) and text matching was often confused by contractions and the relevance of numbers appearing in the year and model columns. 
+
+I had originally planned on using Algolia for vehicle spec search. However, after reading the documentation it was clear that most Algolia search products are APIs for PostgreSQL features.   
+
+The performance and accuracy of the [PostgreSQL trigram search](https://www.postgresql.org/docs/current/pgtrgm.html) extension is really impressive. It can usually return relevant results despite misspellings, contractions, and varied search term ordering. 
+
+A lot of work has also been done by the Django development team integrating PostgreSQL search features into the ORM. As of Django 4.2 integrating PostgreSQL trigram search only requires adding the `pg_trgm` extension to the project migration files and importing `django.contrib.postgres.search` modules.  
+
+Below is the function used to search vehicle specs using trigram similarity. 
+
+```python
+def apply_trigram_search(
+        self, 
+        searchQuery: str | None, 
+        query: Manager[Spec]
+    ):
+    if searchQuery:
+        trigram = (
+            TrigramSimilarity("year", searchQuery)
+            + TrigramSimilarity("make", searchQuery)
+            + TrigramSimilarity("model", searchQuery)
+        )
+        query = (
+            query.annotate(similarity=(trigram))
+            .filter(
+                # There's a lot of 1 or 2 letter word 
+                # matches so this threshold isn't always helpful
+                similarity__gte=0.0
+            )
+            .order_by("-similarity")
+        )
+    return query
+```
+
+A parts finder was beyond the scope of this project and it's unlikely I could create something as refined and efficient as the [RockAuto](https://www.rockauto.com/) parts search. Part detail views will eventually include a purchase history and what vehicles they're compatible with.  
+
+![barn part list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_parts.png)
+
+Barn is still under active development and is not available as a service. 
+

@@ -1,7 +1,7 @@
 <title>Projects Directory</title>
 
-# Projects Directory
+# Projects
 
 - [Wend](/projects/wend)
-- [Django-queryset-feeler](/projects/django-queryset-feeler)
+- [Django Queryset Feeler](/projects/django-queryset-feeler)
 - [Barn](/projects/barn)

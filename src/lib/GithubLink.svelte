@@ -6,8 +6,8 @@
 	export let label: string;
 </script>
 
-<div
-	class="max-w-max rounded-lg border border-fjord-600 duration-100 hover:bg-fjord-100 dark:border-fjord-500 dark:hover:bg-fjord-600"
+<p
+	class="max-w-max rounded border border-fjord-600 duration-100 hover:bg-fjord-100 dark:border-fjord-500 dark:hover:bg-fjord-600"
 	id="github-link"
 >
 	<a
@@ -17,7 +17,7 @@
 		<Icon src={Github} class="h-4 w-4" />
 		<span>{label}</span>
 	</a>
-</div>
+</p>
 
 <style>
 	@media print {

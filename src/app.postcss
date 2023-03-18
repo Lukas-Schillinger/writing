@@ -6,16 +6,19 @@
 @font-face {
 	font-family: 'Inter';
 	font-style: normal;
-	src: local('Inter'), url('/fonts/Inter.var.latin.woff2') format('woff2');
+	/* 
+		I'd like to load a local Inter file here but some browsers seem to have trouble
+		doing that for variable fonts. 
+	*/
+	src: url('/fonts/Inter.var.latin.woff2') format('woff2');
 	font-weight: 100 900;
 	font-display: swap;
 }
 
 body {
 	@apply min-h-screen bg-white;
-	padding-left: calc(
-		100vw - 100%
-	); /* prevent scrollbar from shifting content */
+	/* prevent scrollbar from shifting content */
+	padding-left: calc(100vw - 100%);
 }
 body.dark {
 	@apply bg-fjord-800;

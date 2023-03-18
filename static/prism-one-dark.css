@@ -3,9 +3,12 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
+
+/* -------- Overwrite default text color */
 code[class*='language-'],
 pre[class*='language-'] {
-	color: #abb2bf;
+	/* fjord-50 */
+	color: #dce1e7;
 	background: none;
 	/* font-family: monospace; */
 	text-align: left;
@@ -21,6 +24,12 @@ pre[class*='language-'] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+}
+
+/* -------- Add dark mode specific primary font color */
+.dark code[class*='language-'],
+.dark pre[class*='language-'] {
+	color: #c2ccdd;
 }
 
 pre[class*='language-']::-moz-selection,
@@ -59,7 +68,7 @@ pre[class*='language-'] {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
 	/* background: #282c34; */
-	/* fjord-700 */
+	/* fjord-600 */
 	background: #3b4657;
 }
 
@@ -77,14 +86,32 @@ pre[class*='language-'] {
 	white-space: normal;
 }
 
+/* -------- Overwrite default comment text color */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #5c6370;
+	/* 	color: #5c6370; */
+	color: #a6b6d7;
 }
 
+/* -------- Add dark mode comment color */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.doctype,
+.dark .token.cdata {
+	/* 	color: #5c6370; */
+	color: #93a2c0;
+}
+
+/* -------- Overwrite default punctuation color */
 .token.punctuation {
+	/* color: #abb2bf; */
+	color: #b4bbc9;
+}
+
+/* -------- Add dark mode punctuation color */
+.dark .token.punctuation {
 	color: #abb2bf;
 }
 
