@@ -10,9 +10,13 @@
 		I'd like to load a local Inter file here but some browsers seem to have trouble
 		doing that for variable fonts. 
 	*/
-	src: url('/fonts/Inter.var.latin.woff2') format('woff2 supports variations'),
-		url('/fonts/Inter.var.latin.woff2'), format('woff2-variations');
-	font-weight: 100 900;
+	src: local('Inter') url('/fonts/Inter.var.latin.woff2')
+			format('woff2 supports variations'),
+		local('Inter') url('/fonts/Inter.var.latin.woff2'),
+		format('woff2-variations'),
+		local('Inter') url('/fonts/Inter.var.latin.woff2'),
+		format('woff2') tech('variations');
+	font-weight: 100 1000;
 	font-display: swap;
 }
 
