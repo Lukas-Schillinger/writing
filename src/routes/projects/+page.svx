@@ -1,7 +1,15 @@
-<title>Projects Directory</title>
+<title>Projects</title>
 
 # Projects
 
 - [Wend](/projects/wend)
+    
+    _Wend is a TSP multistop route optimization application._
+
 - [Django Queryset Feeler](/projects/django-queryset-feeler)
+
+    _Get a better feel for how django is querying your database._
+
 - [Barn](/projects/barn)
+
+    _Barn is a vehicle maintenance journal for everyone._
