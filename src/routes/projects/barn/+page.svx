@@ -49,7 +49,7 @@ My requirements for the project were pretty straightforward:
 
 Below is a screenshot of the notion database I was using previously. 
 
-![notion vehicle maintenance log](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/notion_maintenance_log.png?t=2023-03-15T23%3A32%3A03.604Z)
+![notion vehicle maintenance log](https://static.schillingertools.com/barn/notion_maintenance_log.png)
 
 Excel sets a very high bar for data management but most web and IOS maintenance trackers fail to exceed the features of a simple spreadsheet. Applications for commercial fleet management met most of my requirements but were unwieldly and charged exorbitant monthly subscriptions for what's essentially a CRUD app. 
 
@@ -59,13 +59,13 @@ The Barn UI was designed to have the information density of a spreadsheet with t
 
 Below is a development preview of the maintenance records list view. 
 
-![barn records list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_records.png)
+![barn records list view](https://static.schillingertools.com/barn/barn_records.png)
 
 I love that people name their cars so vehicle names are used as the primary identifier across the front-end. 
 
 Below is a development preview of the vehicle list view. 
 
-![barn vehicle list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_vehicles.png)
+![barn vehicle list view](https://static.schillingertools.com/barn/barn_vehicles.png)
 
 Vehicle records include a specification with a year, make, and model. This will be expanded to incorporate more information from NHTSA databases such as the manufacturing series, engine model, and safety recalls.  
 
@@ -73,7 +73,7 @@ Most websites use three dropdown selects to search vehicle specifications by yea
 
 Below is a development preview of the vehicle creation form. 
 
-![barn vehicle spec search](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_vehicles_add.png)
+![barn vehicle spec search](https://static.schillingertools.com/barn/barn_vehicles_add.png)
 
 Simple text search was insufficient for searching vehicle specifications. The model name conventions used by different manufacturers vary (ES-350, Silverado 2500 Crew, etc.) and text matching was often confused by contractions and the relevance of numbers appearing in the year and model columns. 
 
@@ -111,7 +111,7 @@ def apply_trigram_search(
 
 A parts finder was beyond the scope of this project and it's unlikely I could create something as refined and efficient as the [RockAuto](https://www.rockauto.com/) parts search. Part detail views will eventually include a purchase history and what vehicles they're compatible with.  
 
-![barn part list view](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/barn/barn_parts.png)
+![barn part list view](https://static.schillingertools.com/barn/barn_parts.png)
 
 Barn is still under active development and is not available as a service. 
 
