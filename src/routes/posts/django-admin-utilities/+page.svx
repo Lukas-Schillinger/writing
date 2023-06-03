@@ -129,8 +129,6 @@ A django admin view for importing models from a CSV. Importing models is more in
 
 The example used here is for a single purpose CSV upload that is contained in the `admin.ModelAdmin` instance. 
 
-**This is an insecure method of adding CSV uploads to the admin dashboard and will bypass admin authentication. Don't use this in production!**
-
 ![CSV model import admin dashboard example](https://xwiharbgjggexcfgxrnd.supabase.co/storage/v1/object/public/writing/django-admin-utilities/import_csv_button.png)
 
 First, a URL for accessing this admin view is monkey patched into the `get_urls()` method of the `admin.ModelAdmin` instance. The URL can be added in the regular `project/project/urls.py` file but this method keeps the entire process contained to the `model.ModelAdmin` instance. 
@@ -146,9 +144,13 @@ def get_urls(self):
 
 Then an `import_vehicle_specs_view()` function is added that follows the same logic as a regular django view. 
 
+The `@staff_member_required` decorator restricts this view to logged in staff members. 
+
 ```python
+@staff_member_required
 def import_vehicle_specs_view(self, request: HttpRequest):
 ```
+
 
 If this view receives a `GET` request it returns a `file_upload_form.html` template with a `FileUploadForm()` form. In the example below my app name is "garage" and the template is kept in the `project/garage/templates/garage` directory. 
 
@@ -277,6 +279,15 @@ The `<li>` and `<a>` tags are included to match the appearence of the django adm
 Below is the completed `admin.ModelAdmin` class. 
 
 ```python
+from django.contrib import admin
+from django.contrib.admin.views.decorators import staff_member_required
+from django.urls import path
+from django.core.files.uploadedfile import UploadedFile
+from django.http import HttpRequest
+from django.shortcuts import redirect, render
+
+from .models import Spec
+
 @admin.register(Spec)
 class SpecAdmin(admin.ModelAdmin):
     change_list_template = "garage/spec_change_list.html"
@@ -306,6 +317,7 @@ class SpecAdmin(admin.ModelAdmin):
         Spec.objects.bulk_create(specs)
         return len(specs)
 
+    @staff_member required
     def import_vehicle_specs_view(self, request: HttpRequest):
         if request.method == "POST":
             file = request.FILES["file"]
