@@ -144,11 +144,12 @@ def get_urls(self):
 
 Then an `import_vehicle_specs_view()` function is added that follows the same logic as a regular django view. 
 
-The `@staff_member_required` decorator restricts this view to logged in staff members. 
+We can't use django's `@staff_member_required` decorator because this view is inside of the `ModelAdmin` class. This view passes `self` as the first parameter to the decorator but it expects an `HttpRequest` as the first parameter. Instead, we can check ourselves if the user is active and is staff.   
 
 ```python
-@staff_member_required
 def import_vehicle_specs_view(self, request: HttpRequest):
+    if not request.user.is_active or not request.user.is_staff:
+        return redirect("admin:login")
 ```
 
 
@@ -280,7 +281,6 @@ Below is the completed `admin.ModelAdmin` class.
 
 ```python
 from django.contrib import admin
-from django.contrib.admin.views.decorators import staff_member_required
 from django.urls import path
 from django.core.files.uploadedfile import UploadedFile
 from django.http import HttpRequest
@@ -319,6 +319,8 @@ class SpecAdmin(admin.ModelAdmin):
 
     @staff_member required
     def import_vehicle_specs_view(self, request: HttpRequest):
+        if not request.user.is_active or not request.user.is_staff:
+            return redirect("admin:login")
         if request.method == "POST":
             file = request.FILES["file"]
             num_specs_created = self.import_vehicle_specs(file)
